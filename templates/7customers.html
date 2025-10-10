@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клієнти - Prime Build Consulting Group</title>
+    <style>
+        /* Базові стилі */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "TikTok Sans", sans-serif;
+            background-color: #0F0F0F;
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        /* Секція клієнтів */
+        .clients-section {
+            position: relative;
+            width: 100%;
+            min-height: 600px;
+            padding: 140px 20px 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .clients-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.35);
+            z-index: 1;
+        }
+
+        .clients-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Заголовок з синьою рамкою */
+        .clients-heading-box {
+            padding: 40px 80px;
+            background: transparent;
+            max-width: 1000px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .clients-heading {
+            font-size: 26px;
+            font-weight: 800;
+            line-height: 36px;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Карусель логотипів */
+        .logo-carousel {
+            width: 100%;
+            max-width: 1400px;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        .logo-track {
+            display: flex;
+            align-items: center;
+            animation: scroll 50s linear infinite;
+        }
+
+        .logo-item {
+            flex-shrink: 0;
+            margin-right: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+        }
+
+        .logo-item img {
+            height: 100%;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Анімація каруселі */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Адаптивність для планшетів */
+        @media (max-width: 1024px) {
+            .clients-heading {
+                font-size: 22px;
+                line-height: 32px;
+            }
+            
+            .clients-heading-box {
+                padding: 30px 60px;
+            }
+        }
+
+        /* Адаптивність для мобільних */
+        @media (max-width: 768px) {
+            .clients-section {
+                padding: 100px 20px 80px;
+                min-height: 500px;
+            }
+            
+            .clients-heading {
+                font-size: 20px;
+                line-height: 28px;
+            }
+            
+            .clients-heading-box {
+                padding: 25px 40px;
+            }
+            
+            .logo-item {
+                height: 40px;
+                margin-right: 60px;
+            }
+            
+            .logo-track {
+                animation-duration: 60s;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .clients-heading {
+                font-size: 18px;
+                line-height: 26px;
+            }
+            
+            .clients-heading-box {
+                padding: 20px 30px;
+            }
+            
+            .logo-carousel {
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="clients-section">
+        <div class="clients-content">
+            <div class="clients-heading-box">
+                <h2 class="clients-heading">
+                    МИ ПРАЦЮЄМО ЯК ЧАСТИНА КОМАНДИ КЛІЄНТА:<br>
+                    НАДІЙНО, ТОЧНО, З ОРІЄНТАЦІЄЮ НА РЕЗУЛЬТАТ
+                </h2>
+            </div>
+            
+            <div class="logo-carousel">
+                <div class="logo-track">
+                    <!-- Перший набір логотипів -->
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTUwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9Ijc1IiB5PSIyNSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPk1vc3QgTG9naXN0aWM8L3RleHQ+PC9zdmc+" alt="Most Logistic">
+                    </div>
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTUwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9Ijc1IiB5PSIyNSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPkFncG9zO3Jvc2VtPC90ZXh0Pjwvc3ZnPg==" alt="Агросем">
+                    </div>
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTUwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9Ijc1IiB5PSIyNSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPkZlZWRub3ZhPC90ZXh0Pjwvc3ZnPg==" alt="Feednova">
+                    </div>
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTUwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9Ijc1IiB5PSIyNSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPkVxdWljb3JlPC90ZXh0Pjwvc3ZnPg==" alt="Equicore">
+                    </div>
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTUwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9Ijc1IiB5PSIyNSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPlNWTyBEZXZlbG9wbWVudDwvdGV4dD48L3N2Zz4=" alt="SVO Development">
+                    </div>
+                    
+                    <!-- Дубльований набір для безперервного скролу -->
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTUwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9Ijc1IiB5PSIyNSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPk1vc3QgTG9naXN0aWM8L3RleHQ+PC9zdmc+" alt="Most Logistic">
+                    </div>
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTUwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9Ijc1IiB5PSIyNSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPkFncG9zO3Jvc2VtPC90ZXh0Pjwvc3ZnPg==" alt="Агросем">
+                    </div>
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTUwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9Ijc1IiB5PSIyNSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPkZlZWRub3ZhPC90ZXh0Pjwvc3ZnPg==" alt="Feednova">
+                    </div>
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTUwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9Ijc1IiB5PSIyNSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPkVxdWljb3JlPC90ZXh0Pjwvc3ZnPg==" alt="Equicore">
+                    </div>
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTUwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9Ijc1IiB5PSIyNSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPlNWTyBEZXZlbG9wbWVudDwvdGV4dD48L3N2Zz4=" alt="SVO Development">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

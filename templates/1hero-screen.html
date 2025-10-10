@@ -1,0 +1,398 @@
+{% load static %}
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PBC — Prime Build Consulting Group</title>
+
+  <style>
+    .header-page {
+      --bg: #0e1012;
+      --panel: #0a0b0d;
+      --white: #ffffff;
+    }
+
+    .header-page * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
+
+    .header-page body {
+      font-family: "TikTok Sans", sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* ===== HEADER ===== */
+    .header-page .site-header {
+      position: relative;
+      height: 179px;
+      background: var(--bg);
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-page .header-inner {
+      width: min(1240px, 100% - 48px);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+    }
+
+    /* Логотип */
+    .header-page .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--white);
+      visibility: hidden;
+    }
+
+    .header-page .brand img {
+      height: 58px;
+      width: auto;
+      display: block;
+    }
+
+    .header-page .brand-floating {
+      position: absolute;
+      left: 50px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 120;
+      display: flex;
+      width: 239.781px;
+      height: 71px;
+      padding: 0.206px 0.542px 0.305px 0.311px;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 22.421px;
+      flex-shrink: 0;
+    }
+
+    .header-page .brand-floating img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* ===== МЕНЮ ===== */
+    .header-page .main-nav {
+      justify-self: center;
+    }
+
+    .header-page .main-nav ul {
+      display: flex;
+      gap: 42px;
+      list-style: none;
+    }
+
+    .header-page .main-nav a {
+      color: var(--white, #FFF);
+      text-decoration: none;
+      font-family: "TikTok Sans";
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 23px;
+      text-transform: uppercase;
+      opacity: 0.95;
+      transition: opacity 0.2s ease;
+    }
+
+    .header-page .main-nav a:hover { 
+      opacity: 1; 
+    }
+
+    /* ===== БІЛІ ЛІНІЇ ===== */
+    .header-page .line-horizontal {
+      position: absolute;
+      top: 179px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #fff;
+      z-index: 8;
+    }
+
+    .header-page .line-horizontal-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #fff;
+      z-index: 8;
+    }
+
+    .header-page .line-vertical {
+      position: absolute;
+      top: 0;
+      right: 270px;
+      width: 2px;
+      height: 100%;
+      background: #fff;
+      z-index: 99;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .header-page .hero {
+      position: relative;
+      height: calc(100vh - 179px);
+      background: url("{% static 'images/header-image.png' %}") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 50px;
+      z-index: 1;
+    }
+
+    .header-page .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    .header-page .hero-content {
+      position: relative;
+      z-index: 2;
+      color: var(--white);
+      width: calc(100vw - 270px - 50px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .header-page .hero h1 {
+      color: var(--white, #FFF);
+      font-family: "TikTok Sans";
+      font-size: 70px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 96px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .header-page .hero p {
+      color: var(--white, #FFF);
+      font-family: "TikTok Sans";
+      font-size: 26px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 35px;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+
+    .header-page .icon-down {
+      position: absolute;
+      bottom: 45px;
+      left: 50px;
+      width: calc(100vw - 270px - 50px);
+      display: flex;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .header-page .icon-down img {
+      width: 95.487px;
+      height: 95.487px;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+
+    /* ===== ПРАВА ПАНЕЛЬ ===== */
+    .header-page .rail {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 270px;
+      height: 100%;
+      background: var(--panel);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 320px 25px 40px 25px;
+      z-index: 5;
+    }
+
+    .header-page .rail h3 {
+      color: var(--white, #FFF);
+      font-family: "TikTok Sans";
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 23px;
+      text-transform: uppercase;
+      margin: 0 0 12px 0;
+      width: 220px;
+    }
+
+    .header-page .rail p {
+      color: var(--white, #FFF);
+      font-family: "TikTok Sans";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 21px;
+      margin: 0 0 28px 0;
+      width: 220px;
+    }
+
+    /* ===== ВИПРАВЛЕНА КНОПКА ДЕТАЛІ ===== */
+    .header-page .btn-outline {
+      position: relative;
+      display: flex;
+      padding: 20px 35px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      width: 220px;
+      color: var(--white, #FFF);
+      font-family: "TikTok Sans";
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 23px;
+      text-transform: uppercase;
+      border: 1px solid #fff;
+      background: transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.35s ease;
+      overflow: hidden;
+      z-index: 99;
+    }
+
+    .header-page .btn-outline::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #2f8000;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
+      z-index: -1;
+    }
+
+    .header-page .btn-outline:hover::before {
+      transform: scaleX(1);
+    }
+
+    .header-page .btn-outline:hover {
+      color: #fff;
+      border-color: #2f8000;
+    }
+
+    /* Вміст кнопки - текст та іконка */
+    .header-page .btn-outline .btn-text,
+    .header-page .btn-outline .icon-arrow {
+      position: relative;
+      z-index: 2;
+      transition: transform 0.3s ease;
+    }
+
+    .header-page .btn-outline:hover .btn-text,
+    .header-page .btn-outline:hover .icon-arrow {
+      transform: translateX(6px);
+    }
+
+    /* Стрілка */
+    .header-page .btn-outline .icon-arrow {
+      width: 22px;
+      height: 22px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 8px;
+      filter: brightness(0) invert(1);
+    }
+
+    /* ===== ДОДАТКОВИЙ КОНТЕНТ ДЛЯ ПЕРЕВІРКИ СКРОЛУ ===== */
+    .header-page .content-section {
+      padding: 100px 50px;
+      max-width: calc(100% - 270px);
+      margin-bottom: 50px;
+    }
+
+    .header-page .content-section h2 {
+      font-family: "TikTok Sans";
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: var(--white);
+    }
+
+    .header-page .content-section p {
+      font-family: "TikTok Sans";
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body class="header-page">
+
+<header class="site-header">
+  <a href="/" class="brand-floating">
+    <img src="{% static 'images/LogoPBC-07.png' %}" alt="PBC Logo">
+  </a>
+
+  <div class="header-inner">
+    <a href="#" class="brand">
+      <img src="{% static 'images/LogoPBC-07.png' %}" alt="PBC Logo">
+    </a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#">ПРО НАС</a></li>
+          <li><a href="#">ПОСЛУГИ</a></li>
+          <li><a href="#">КЛІЄНТИ</a></li>
+          <li><a href="#">КОМАНДА</a></li>
+          <li><a href="#">КОНТАКТИ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Білі лінії -->
+  <div class="line-horizontal"></div>
+  <div class="line-vertical"></div>
+  <div class="line-horizontal-bottom"></div>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>PRIME BUILD CONSULTING GROUP</h1>
+      <p>ЮРИДИЧНИЙ СУПРОВІД БУДІВНИЦТВА</p>
+    </div>
+      <div class="icon-down">
+        <img src="{% static 'images/icons/stdown.png' %}" alt="arrow" class="icon-down-inner">
+      </div>
+  </section>
+
+  <aside class="rail">
+    <h3>З вами на кожному етапі</h3>
+    <p>експертний аудит<br>і юридичний супровід<br>ваших проєктів</p>
+    <a href="#" class="btn-outline">
+      <span class="btn-text">ДЕТАЛІ</span>
+      <img src="{% static 'images/icons/Frame311.svg' %}" alt="arrow" class="icon-arrow">
+    </a>
+  </aside>
+
+</body>
+</html>

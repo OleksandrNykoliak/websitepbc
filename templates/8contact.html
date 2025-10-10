@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакти — Prime Build Consulting Group</title>
+
+  <style>
+    /* === Ізольовані змінні для секції === */
+    .pbc-contact-wrapper {
+      --pbc-contact-bg: #FAFAFA;
+      --pbc-contact-dot: #E8E8E8;
+      --pbc-contact-text: #121212;
+      --pbc-contact-font: "TikTok Sans", sans-serif;
+      --pbc-contact-white: #FFFFFF;
+      --pbc-contact-border: #121212;
+      --pbc-contact-radius: 8px;
+    }
+
+    /* === Скидання лише в межах секції === */
+    .pbc-contact-wrapper *,
+    .pbc-contact-wrapper *::before,
+    .pbc-contact-wrapper *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* === Основна секція === */
+    .pbc-contact-wrapper {
+      font-family: var(--pbc-contact-font);
+      background-color: var(--pbc-contact-bg);
+      color: var(--pbc-contact-text);
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    .pbc-contact-section {
+      width: 100%;
+      padding: 120px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--pbc-contact-bg);
+      background-image: radial-gradient(var(--pbc-contact-dot) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+
+    /* === Контейнер === */
+    .pbc-contact-container {
+      max-width: 1440px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    /* === Ліва частина — зображення === */
+    .pbc-contact-image img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--pbc-contact-radius);
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* === Права частина — контент === */
+    .pbc-contact-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 40px;
+    }
+
+    .pbc-contact-title {
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 42px;
+      color: var(--pbc-contact-text);
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    /* === Email-кнопка === */
+    .pbc-contact-email {
+      display: inline-flex;
+      align-items: center;
+      padding: 14px 28px;
+      border: 1px solid var(--pbc-contact-border);
+      border-radius: 4px;
+      background: transparent;
+      color: var(--pbc-contact-text);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    .pbc-contact-email:hover {
+      background: var(--pbc-contact-text);
+      color: var(--pbc-contact-white);
+    }
+
+    .pbc-contact-email::after {
+      content: "↗";
+      margin-left: 8px;
+      font-size: 16px;
+    }
+
+    /* === Локація === */
+    .pbc-contact-location {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pbc-contact-location-icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    .pbc-contact-location-text {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--pbc-contact-text);
+      text-transform: uppercase;
+    }
+
+    /* === Адаптивність === */
+    @media (max-width: 1024px) {
+      .pbc-contact-container {
+        gap: 60px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .pbc-contact-section {
+        padding: 80px 40px;
+      }
+
+      .pbc-contact-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .pbc-contact-info {
+        align-items: center;
+        text-align: center;
+      }
+
+      .pbc-contact-title {
+        font-size: 26px;
+        line-height: 36px;
+      }
+
+      .pbc-contact-email {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .pbc-contact-section {
+        padding: 60px 20px;
+      }
+
+      .pbc-contact-info {
+        gap: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="pbc-contact-wrapper">
+    <div class="pbc-contact-section">
+      <div class="pbc-contact-container">
+        
+        <!-- Ліва колонка -->
+        <div class="pbc-contact-image">
+          <img src="https://images.unsplash.com/photo-1596484552994-f9b2add1b40b?auto=format&fit=crop&w=2070&q=80"
+               alt="Львів — Ратуша">
+        </div>
+        
+        <!-- Права колонка -->
+        <div class="pbc-contact-info">
+          <h2 class="pbc-contact-title">З ВАМИ НА КОЖНОМУ ЕТАПІ</h2>
+
+          <a href="mailto:buildcons@proton.me" class="pbc-contact-email">
+            BUILDCONS@PROTON.ME
+          </a>
+
+          <div class="pbc-contact-location">
+            <svg class="pbc-contact-location-icon" viewBox="0 0 16 16" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 0C4.1 0 1 3.1 1 7C1 12 8 16 8 16C8 16 15 12 15 7C15 3.1 11.9 0 8 0ZM8 9.5C6.6 9.5 5.5 8.4 5.5 7C5.5 5.6 6.6 4.5 8 4.5C9.4 4.5 10.5 5.6 10.5 7C10.5 8.4 9.4 9.5 8 9.5Z"
+                    fill="#121212" />
+            </svg>
+            <span class="pbc-contact-location-text">Львів, Україна</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</body>
+</html>

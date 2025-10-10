@@ -1,0 +1,238 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Команда — Prime Build</title>
+
+  <style>
+    /* ===== Унікальні змінні для блоку ===== */
+    .pbc-team-wrapper {
+      --pbc-team-bg: #fafafa;
+      --pbc-team-card-bg: #0f0f0f;
+      --pbc-team-text-main: #121212;
+      --pbc-team-text-gray: #5D5D5D;
+      --pbc-team-white: #fff;
+      --pbc-team-radius: 20px;
+      --pbc-team-dot: #e8e8e8;
+    }
+
+    /* ===== Скидання тільки для цієї секції ===== */
+    .pbc-team-wrapper *,
+    .pbc-team-wrapper *::before,
+    .pbc-team-wrapper *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ===== Основний контейнер ===== */
+    .pbc-team-wrapper {
+      font-family: "TikTok Sans", sans-serif;
+      background-color: var(--pbc-team-bg);
+      color: var(--pbc-team-text-main);
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    /* ===== Секція ===== */
+    .pbc-team-section {
+      width: 100%;
+      padding: 120px 40px;
+      background-color: var(--pbc-team-bg);
+      background-image: none; /* вимикає глобальні крапки */
+      background-size: initial;
+      background-repeat: no-repeat;
+    }
+
+    /* ===== Заголовок ===== */
+    .pbc-team-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 80px;
+    }
+
+    .pbc-team-title {
+      font-size: 32px;
+      line-height: 42px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--pbc-team-text-main);
+      margin-bottom: 18px;
+    }
+
+    .pbc-team-description {
+      font-size: 16px;
+      line-height: 23px;
+      font-weight: 500;
+      color: var(--pbc-team-text-gray);
+    }
+
+    /* ===== Контейнер карток ===== */
+    .pbc-team-cards {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      flex-wrap: wrap;
+      gap: 40px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* ===== Картка ===== */
+    .pbc-team-card {
+      position: relative;
+      background: var(--pbc-team-card-bg);
+      color: var(--pbc-team-white);
+      border-radius: var(--pbc-team-radius);
+      width: 360px;
+      min-height: 420px;
+      padding: 70px 30px 0;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      isolation: isolate;
+    }
+
+    .pbc-team-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    /* ===== Іконка-чек ===== */
+    .pbc-team-icon {
+      position: absolute;
+      top: -26px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 52px;
+      height: 52px;
+      background: var(--pbc-team-card-bg);
+      border: 3px solid var(--pbc-team-white);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .pbc-team-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--pbc-team-white);
+      stroke-width: 3;
+      fill: none;
+    }
+
+    /* ===== Текст картки ===== */
+    .pbc-team-text {
+      font-size: 16px;
+      line-height: 21px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0 10px;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ===== Зображення картки ===== */
+    .pbc-team-image {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 0 0 var(--pbc-team-radius) var(--pbc-team-radius);
+      margin-top: 30px;
+    }
+
+    /* ===== Адаптивність ===== */
+    @media (max-width: 1024px) {
+      .pbc-team-section {
+        padding: 100px 30px;
+      }
+      .pbc-team-cards {
+        gap: 30px;
+      }
+      .pbc-team-card {
+        width: 300px;
+        min-height: 380px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .pbc-team-section {
+        padding: 80px 20px;
+      }
+      .pbc-team-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+      .pbc-team-card {
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="pbc-team-wrapper">
+    <div class="pbc-team-section" aria-label="Наша команда">
+      <div class="pbc-team-header">
+        <h2 class="pbc-team-title">Команда</h2>
+        <p class="pbc-team-description">
+          Успіх кожного проєкту залежить від людей, які стоять за ним. Саме тому ми зібрали команду фахівців,
+          які поєднують юридичну точність, інженерну експертизу та стратегічне бачення розвитку будівельної галузі.
+        </p>
+      </div>
+
+      <div class="pbc-team-cards">
+        <!-- Card 1 -->
+        <div class="pbc-team-card">
+          <div class="pbc-team-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div class="pbc-team-text">
+            ДОСКОНАЛО ОРІЄНТУЮТЬСЯ У ЗАКОНОДАВСТВІ ТА НОРМАТИВНІЙ БАЗІ
+          </div>
+          <img src="{% static 'images/team/law-books.jpg' %}" alt="Юридична база" class="pbc-team-image" />
+        </div>
+
+        <!-- Card 2 -->
+        <div class="pbc-team-card">
+          <div class="pbc-team-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div class="pbc-team-text">
+            МАЮТЬ БАГАТОРІЧНИЙ ПРАКТИЧНИЙ ДОСВІД У БУДІВНИЦТВІ ТА ДЕВЕЛОПМЕНТІ
+          </div>
+          <img src="{% static 'images/team/engineers.jpg' %}" alt="Будівельники" class="pbc-team-image" />
+        </div>
+
+        <!-- Card 3 -->
+        <div class="pbc-team-card">
+          <div class="pbc-team-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div class="pbc-team-text">
+            ВМІЮТЬ ЗНАХОДИТИ ЕФЕКТИВНІ РІШЕННЯ НАВІТЬ У СКЛАДНИХ СИТУАЦІЯХ
+          </div>
+          <img src="{% static 'images/team/architects.jpg' %}" alt="Архітектори" class="pbc-team-image" />
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

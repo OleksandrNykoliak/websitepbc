@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Послуги - Prime Build Consulting Group</title>
+    <style>
+        /* Базові стилі */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "TikTok Sans", sans-serif;
+            background-color: #0F0F0F;
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        /* Секція послуг */
+        .services-section {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        /* Сітка */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 340px);
+            gap: 0;
+            border: 1px solid #202020;
+        }
+
+        /* Загальні стилі для комірок */
+        .grid-cell {
+            position: relative;
+            border: 1px solid #202020;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Перша комірка - інтро */
+        .intro-cell {
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .services-title {
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 42px;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .services-description {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 22px;
+            color: #B0B0B0;
+            max-width: 260px;
+        }
+
+        /* Комірки з послугами */
+        .service-cell {
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .service-cell:hover {
+            background-color: #1a1a1a;
+        }
+
+        .service-title {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 23px;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            max-width: 280px;
+        }
+
+        /* Стрілка в комірках послуг */
+        .service-arrow {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-cell:hover .service-arrow {
+            transform: translate(2px, -2px);
+        }
+
+        /* Комірка з цифрою */
+        .stats-cell {
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .stats-number {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 56px;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .stats-label {
+            font-size: 26px;
+            font-weight: 700;
+            line-height: 35px;
+            color: #FFFFFF;
+            text-transform: uppercase;
+        }
+
+        /* Адаптивність для планшетів */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(5, 300px);
+            }
+        }
+
+        /* Адаптивність для мобільних */
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(9, 300px);
+            }
+            
+            .intro-cell {
+                text-align: center;
+                align-items: center;
+            }
+            
+            .stats-cell {
+                text-align: center;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="services-section">
+        <div class="services-grid">
+            <!-- Перша комірка - інтро -->
+            <div class="grid-cell intro-cell">
+                <h2 class="services-title">ПОСЛУГИ</h2>
+                <p class="services-description">
+                    Повний спектр юридичних послуг для будівельних компаній, 
+                    девелоперів, інвесторів та приватних замовників
+                </p>
+            </div>
+            
+            <!-- Комірки з послугами -->
+            <div class="grid-cell service-cell">
+                <h3 class="service-title">DUE DILIGENCE ЗЕМЕЛЬНОЇ ДІЛЯНКИ</h3>
+                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            
+            <div class="grid-cell service-cell">
+                <h3 class="service-title">ПІДГОТОВКА ДОГОВОРІВ ПІДРЯДУ, ОРЕНДИ, КУПІВЛІ-ПРОДАЖУ</h3>
+                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            
+            <div class="grid-cell service-cell">
+                <h3 class="service-title">ОТРИМАННЯ ДОЗВІЛЬНОЇ ДОКУМЕНТАЦІЇ НА БУДІВНИЦТВО</h3>
+                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            
+            <div class="grid-cell service-cell">
+                <h3 class="service-title">СУПРОВІД ПІД ЧАС БУДІВНИЦТВА</h3>
+                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            
+            <div class="grid-cell service-cell">
+                <h3 class="service-title">ОТРИМАННЯ ДОЗВОЛІВ І ПОГОДЖЕНЬ НА БУДІВНИЦТВО</h3>
+                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            
+            <div class="grid-cell service-cell">
+                <h3 class="service-title">РЕЄСТРАЦІЯ ПРАВА ВЛАСНОСТІ</h3>
+                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            
+            <!-- Комірка зі статистикою -->
+            <div class="grid-cell stats-cell">
+                <div class="stats-number">14+</div>
+                <div class="stats-label">КВЕД</div>
+            </div>
+            
+            <!-- Остання комірка (порожня за потреби) -->
+            <div class="grid-cell service-cell">
+                <h3 class="service-title">ДОДАТКОВІ ПОСЛУГИ</h3>
+                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

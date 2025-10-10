@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}PBC{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <style>
+        :root {
+            --bg: #121212;
+            --panel: #121212;
+            --text: #ffffff;
+            --white: #FFF;
+            --muted: #b9b9c0;
+            --accent: #ffffff;
+        }
+        
+        body {
+            font-family: 'TikTok Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+        }
+        
+        .container {
+            width: min(100% - 48px, 1240px);
+            margin-inline: auto;
+        }
+    </style>
+</head>
+<body>
+    {% include '1hero-screen.html' %}
+    {% include '2projects.html' %}
+    {% include '3aboutcompany.html' %}
+    {% include '4aboutspecific.html' %}
+    {% include '5services.html' %}
+    {% include '6team.html' %}
+    {% include '7customers.html' %}
+    {% include '8contact.html' %}
+    {% include '9footer.html' %}
+
+    
+    
+  
+
+
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+</body>
+</html>
+
+
+

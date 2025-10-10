@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Build Consulting Group</title>
+    <style>
+        /* Базові стилі */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "TikTok Sans", sans-serif;
+            background-color: #0F0F0F;
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        /* Герой секція */
+        .hero-section-specific {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            text-align: center;
+        }
+
+        .hero-section-specific::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.35);
+            z-index: 1;
+        }
+
+        .hero-content-specific {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        /* Основний заголовок */
+        .main-heading {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 40px;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .main-heading div {
+            margin-bottom: 5px;
+        }
+
+        .main-heading div:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Блок з метрикою */
+        .metric-block {
+            margin-top: 40px;
+        }
+
+        .metric-value {
+            font-size: 26px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #FFFFFF;
+            text-transform: uppercase;
+        }
+
+        /* Адаптивність для планшетів */
+        @media (max-width: 1024px) {
+            .main-heading {
+                font-size: 26px;
+                line-height: 36px;
+            }
+            
+            .metric-value {
+                font-size: 22px;
+            }
+        }
+
+        /* Адаптивність для мобільних */
+        @media (max-width: 600px) {
+            .main-heading {
+                font-size: 20px;
+                line-height: 28px;
+            }
+            
+            .metric-value {
+                font-size: 18px;
+            }
+            
+            .hero-content-specific {
+                padding: 0 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero-section-specific">
+        <div class="hero-content-specific">
+            <div class="main-heading">
+                <div>МИ ДОПОМАГАЄМО КЛІЄНТАМ</div>
+                <div>РЕАЛІЗОВУВАТИ ПРОЄКТИ ШВИДКО,</div>
+                <div>БЕЗПЕЧНО ТА З УРАХУВАННЯМ ВСІХ ВИМОГ</div>
+                <div>ЧИННОГО ЗАКОНОДАВСТВА</div>
+            </div>
+            
+            <div class="metric-block">
+                <div class="metric-value">250 ТИС.+</div>
+                <div class="metric-label">М2 НА ЮРИДИЧНОМУ СУПРОВОДІ</div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

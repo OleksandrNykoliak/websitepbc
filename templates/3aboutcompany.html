@@ -1,0 +1,184 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Про нас — Prime Build Consulting Group</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --white: #FFF;
+      --gray-900: #121212;
+      --gray-700: #5D5D5D;
+    }
+
+    body {
+      background: var(--gray-900);
+      font-family: "TikTok Sans", sans-serif;
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 120px 80px;
+      max-width: 1600px;
+      margin: 0 auto;
+      gap: 140px;
+    }
+
+    /* ===== LEFT MENU ===== */
+    .sidebar {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 55px;
+      min-width: 320px;
+      padding-left: 25px;
+    }
+
+    .sidebar::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 5px;
+      height: 100%;
+      background: #2B2B2B;
+    }
+
+    .nav-item {
+      position: relative;
+      font-family: "TikTok Sans";
+      font-size: 26px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 35px;
+      text-transform: uppercase;
+      color: #5D5D5D;
+      transition: color 0.3s ease;
+    }
+
+    .nav-item.active {
+      color: var(--white);
+    }
+
+    .nav-item.active::before {
+      content: "";
+      position: absolute;
+      left: -25px;
+      top: 0;
+      width: 5px;
+      height: 35px;
+      background: var(--white);
+    }
+
+    /* ===== RIGHT TEXT CONTENT ===== */
+    .content {
+      flex: 1;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      gap: 45px;
+    }
+
+    .content-block p {
+      font-family: "TikTok Sans";
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 23px;
+      text-transform: uppercase;
+      color: #5D5D5D;
+      margin-bottom: 10px;
+    }
+
+    .content-block p strong {
+      color: #FFF;
+      font-weight: 700;
+    }
+
+    /* ===== ADAPTIVE ===== */
+    @media (max-width: 1024px) {
+      main {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 80px 40px;
+        gap: 80px;
+      }
+
+      .sidebar {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px 40px;
+      }
+
+      .sidebar::before {
+        display: none;
+      }
+
+      .nav-item.active::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 60px 20px;
+      }
+
+      .nav-item {
+        font-size: 20px;
+        line-height: 28px;
+      }
+
+      .content-block p {
+        font-size: 16px;
+        line-height: 21px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <!-- LEFT MENU -->
+    <nav class="sidebar">
+      <div class="nav-item active">Про нас</div>
+      <div class="nav-item">Кому ми будемо корисні</div>
+      <div class="nav-item">Комплексний супровід будівництва</div>
+      <div class="nav-item">Чому обирають нас</div>
+    </nav>
+
+    <!-- RIGHT TEXT CONTENT -->
+    <section class="content">
+      <div class="content-block">
+        <p><strong>Prime Build Consulting Group — це консалтингова компанія,</strong> що спеціалізується на юридичному та інженерно-технічному супроводі будівельних проєктів.</p>
+      </div>
+
+      <div class="content-block">
+        <p><strong>Ми створили команду професіоналів, які поєднують глибокі знання законодавства з практичним досвідом у сфері девелопменту.</strong>  
+        Наше завдання — зробити шлях від ідеї до готового об’єкта максимально прозорим, зрозумілим і без ризиків для замовника.</p>
+      </div>
+
+      <div class="content-block">
+        <p><strong>Наші клієнти довіряють нам, тому що ми працюємо відкрито, відповідально та з урахуванням усіх нюансів сучасного будівельного законодавства.</strong></p>
+      </div>
+
+      <div class="content-block">
+        <p><strong>Ми не просто надаємо послуги — ми стаємо вашим надійним партнером,</strong> який оптимізує ваші витрати та буде супроводжувати проєкт до моменту його реалізації.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

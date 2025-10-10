@@ -1,0 +1,385 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Проєкти будь-якого масштабу</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --gray-900: #121212;
+      --bg-color: var(--gray-900);
+      --text-color: #fff;
+      --line-color: #fff;
+    }
+
+    body {
+      font-family: "TikTok Sans", sans-serif;
+      background: var(--gray-900, #121212);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    .projects-section {
+      height: 1065px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-title {
+      color: var(--white, #FFF);
+      text-align: center;
+      font-family: "TikTok Sans";
+      font-size: 50px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 65px;
+      text-transform: uppercase;
+      margin-bottom: 80px;
+    }
+
+    .slider-container {
+      width: 100%;
+      overflow: hidden;
+      margin-bottom: 80px;
+      position: relative;
+    }
+
+    .projects-slider {
+      display: flex;
+      transition: transform 0.5s ease;
+      width: max-content;
+    }
+
+    .project-image {
+      width: 200px;
+      flex-shrink: 0;
+      aspect-ratio: 262 / 327;
+      object-fit: cover;
+      border-radius: 6px;
+      transition: transform 0.3s ease;
+      margin: 0 20px;
+    }
+
+    .project-image:hover {
+      transform: scale(1.05);
+    }
+
+    .slider-controls {
+      position: relative;
+      margin-bottom: 60px;
+      width: 1341px;
+      max-width: 90%;
+    }
+
+    .slider-line {
+      height: 5px;
+      background-color: var(--line-color);
+      position: relative;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .slider-indicator {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 85px;
+      height: 85px;
+      left: 0;
+      transition: left 0.5s ease;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .slider-indicator svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .slider-dots {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      z-index: 1;
+    }
+
+   
+    .slider-dot.active {
+      opacity: 1;
+    }
+
+    .project-description {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .description-title {
+      color: var(--white, #FFF);
+      text-align: center;
+      font-family: "TikTok Sans";
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 23px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .description-subtitle {
+      color: var(--white, #FFF);
+      text-align: center;
+      font-family: "TikTok Sans";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 21px;
+    }
+
+    /* ===== Адаптивність ===== */
+    @media (max-width: 1400px) {
+      .slider-controls {
+        width: 90%;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .projects-section {
+        height: auto;
+        min-height: 900px;
+      }
+      
+      .section-title {
+        font-size: 40px;
+        line-height: 55px;
+      }
+      
+      .project-image {
+        width: 180px;
+      }
+
+      .slider-indicator {
+        width: 75px;
+        height: 75px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .projects-section {
+        min-height: 800px;
+        padding: 60px 15px;
+      }
+      
+      .section-title {
+        font-size: 32px;
+        line-height: 42px;
+        margin-bottom: 60px;
+      }
+
+      .project-image {
+        width: 150px;
+        margin: 0 15px;
+      }
+
+      .slider-indicator {
+        width: 65px;
+        height: 65px;
+      }
+      
+      .slider-controls {
+        margin-bottom: 40px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .projects-section {
+        min-height: 700px;
+        padding: 40px 10px;
+      }
+
+      .section-title {
+        font-size: 28px;
+        line-height: 36px;
+        margin-bottom: 40px;
+      }
+
+      .project-image {
+        width: 120px;
+        margin: 0 10px;
+      }
+
+      .slider-indicator {
+        width: 55px;
+        height: 55px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="projects-section">
+    <h2 class="section-title">ПРОЄКТИ БУДЬ-ЯКОГО МАСШТАБУ</h2>
+
+    <div class="slider-container">
+      <div class="projects-slider" id="projectsSlider">
+        <!-- Images will be duplicated by JavaScript for infinite effect -->
+      </div>
+    </div>
+
+    <div class="slider-controls">
+      <div class="slider-line">
+        <div class="slider-indicator" id="sliderIndicator">
+          <svg xmlns="http://www.w3.org/2000/svg" width="85" height="85" viewBox="0 0 85 85" fill="none">
+            <circle cx="42.5" cy="42.5" r="40" fill="#121212" stroke="white" stroke-width="5"/>
+          </svg>
+        </div>
+        <div class="slider-dots" id="sliderDots">
+          <!-- Dots will be generated by JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <div class="project-description">
+      <h3 class="description-title">ЖИТЛОВІ ОБ'ЄКТИ</h3>
+      <p class="description-subtitle">від приватних будинків до великих житлових комплексів.</p>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const slider = document.getElementById('projectsSlider');
+      const indicator = document.getElementById('sliderIndicator');
+      const dotsContainer = document.getElementById('sliderDots');
+      
+      // Масив зображень
+      const imagePaths = [
+        "{% static 'images/projects/residential1.png' %}",
+        "{% static 'images/projects/residential2.png' %}",
+        "{% static 'images/projects/residential3.png' %}",
+        "{% static 'images/projects/residential4.png' %}",
+        "{% static 'images/projects/residential5.png' %}",
+        "{% static 'images/projects/residential6.png' %}",
+        "{% static 'images/projects/residential7.png' %}",
+        "{% static 'images/projects/residential8.png' %}",
+        "{% static 'images/projects/residential9.png' %}",
+        "{% static 'images/projects/residential10.png' %}"
+      ];
+      
+      const altTexts = [
+        "Житловий комплекс",
+        "Приватний будинок",
+        "Житловий квартал",
+        "Апартаменти",
+        "Житлова забудова",
+        "Житлова забудова",
+        "Житлова забудова",
+        "Житлова забудова",
+        "Житлова забудова",
+        "Житлова забудова"
+      ];
+      
+      const totalImages = imagePaths.length;
+      
+      // Створюємо зображення для слайдера (подвоюємо для безкінечного ефекту)
+      for (let i = 0; i < totalImages * 2; i++) {
+        const imgIndex = i % totalImages;
+        const img = document.createElement('img');
+        img.src = imagePaths[imgIndex];
+        img.alt = altTexts[imgIndex];
+        img.className = 'project-image';
+        slider.appendChild(img);
+      }
+      
+      // Створюємо точки для кожного оригінального зображення
+      for (let i = 0; i < totalImages; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'slider-dot';
+        if (i === 0) dot.classList.add('active');
+        dot.setAttribute('data-index', i);
+        dotsContainer.appendChild(dot);
+      }
+      
+      const dots = document.querySelectorAll('.slider-dot');
+      const images = document.querySelectorAll('.project-image');
+      let currentIndex = 0;
+      let autoSlideInterval;
+      
+      // Функція для оновлення позиції слайдера
+      function updateSlider() {
+        const imageWidth = images[0].offsetWidth + 40; // width + margin
+        const translateX = -currentIndex * imageWidth;
+        slider.style.transform = `translateX(${translateX}px)`;
+        
+        // Оновлюємо позицію індикатора
+        const indicatorPosition = ((currentIndex % totalImages) / (totalImages - 1)) * 100;
+        indicator.style.left = `${indicatorPosition}%`;
+        
+        // Оновлюємо активну точку
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === (currentIndex % totalImages));
+        });
+        
+        // Перехід до початку для безкінечного ефекту
+        if (currentIndex >= totalImages) {
+          setTimeout(() => {
+            slider.style.transition = 'none';
+            currentIndex = 0;
+            slider.style.transform = `translateX(0px)`;
+            setTimeout(() => {
+              slider.style.transition = 'transform 0.5s ease';
+            }, 50);
+          }, 500);
+        }
+      }
+      
+      // Функція для переміщення до конкретного слайду
+      function goToSlide(index) {
+        currentIndex = index;
+        updateSlider();
+        // Перезапускаємо автоматичне перегортання
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+      }
+      
+      // Функція для автоматичного перегортання
+      function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+          currentIndex++;
+          updateSlider();
+        }, 3000); // Змінює слайд кожні 3 секунди
+      }
+      
+      // Додаємо обробники подій для точок
+      dots.forEach(dot => {
+        dot.addEventListener('click', function() {
+          const index = parseInt(this.getAttribute('data-index'));
+          goToSlide(index);
+        });
+      });
+      
+      // Ініціалізація
+      updateSlider();
+      startAutoSlide();
+    });
+  </script>
+</body>
+</html>

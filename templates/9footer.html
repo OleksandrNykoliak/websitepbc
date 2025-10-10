@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Футер — Prime Build Consulting</title>
+
+  <style>
+    .footer-page {
+      --footer-bg-dark: #0F0F0F;
+      --footer-text-light: #FFFFFF;
+      --footer-font: "TikTok Sans", sans-serif;
+    }
+
+    .footer-page * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .footer-page body {
+      font-family: var(--footer-font);
+      background-color: var(--footer-bg-dark);
+      color: var(--footer-text-light);
+    }
+
+    .footer-container {
+      background-color: var(--footer-bg-dark);
+      width: 100%;
+      padding: 40px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    /* ===== Логотип ===== */
+    .footer-brand img {
+      height: 50px;
+      width: auto;
+      display: block;
+      transition: opacity 0.3s ease;
+    }
+
+    .footer-brand img:hover {
+      opacity: 0.8;
+    }
+
+    /* ===== Навігація ===== */
+    .footer-navigation {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 30px 60px;
+    }
+
+    .footer-nav-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--footer-text-light);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer-nav-link::after {
+      content: "↗";
+      margin-left: 6px;
+      font-size: 12px;
+      transform: translateY(-1px);
+      transition: transform 0.3s ease;
+    }
+
+    .footer-nav-link:hover {
+      opacity: 0.7;
+      transform: translateY(-2px);
+    }
+
+    .footer-nav-link:hover::after {
+      transform: translate(3px, -3px);
+    }
+
+    /* ===== Адаптивність ===== */
+    @media (max-width: 1024px) {
+      .footer-container {
+        padding: 30px 60px;
+      }
+
+      .footer-navigation {
+        gap: 25px 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 40px 30px;
+        gap: 30px;
+      }
+
+      .footer-brand img {
+        margin-bottom: 10px;
+      }
+
+      .footer-navigation {
+        justify-content: center;
+        gap: 20px 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-container {
+        padding: 30px 20px;
+      }
+
+      .footer-nav-link {
+        font-size: 12px;
+      }
+
+      .footer-navigation {
+        gap: 15px 25px;
+      }
+    }
+  </style>
+</head>
+
+<body class="footer-page">
+  <footer class="footer-container">
+    <div class="footer-brand">
+      <img src="{% static 'images/logo-pbc.svg' %}" alt="PBC Logo">
+    </div>
+
+    <nav class="footer-navigation">
+      <a href="#about" class="footer-nav-link">Про нас</a>
+      <a href="#services" class="footer-nav-link">Послуги</a>
+      <a href="#clients" class="footer-nav-link">Клієнти</a>
+      <a href="#team" class="footer-nav-link">Команда</a>
+      <a href="#contacts" class="footer-nav-link">Контакти</a>
+    </nav>
+  </footer>
+</body>
+</html>
