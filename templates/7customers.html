@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -23,14 +24,13 @@
         .clients-section {
             position: relative;
             width: 100%;
-            min-height: 600px;
+            height: 1085px;
             padding: 140px 20px 100px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-image: url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-position: center;
+            background: url("{% static 'images/customersbc.png' %}");
             background-size: cover;
             background-repeat: no-repeat;
         }
@@ -56,7 +56,7 @@
             align-items: center;
         }
 
-        /* Заголовок з синьою рамкою */
+        /* Заголовок */
         .clients-heading-box {
             padding: 40px 80px;
             background: transparent;
@@ -66,26 +66,38 @@
         }
 
         .clients-heading {
-            font-size: 26px;
-            font-weight: 800;
-            line-height: 36px;
-            color: #FFFFFF;
+            color: var(--white, #FFF);
+            text-align: center;
+            font-family: "TikTok Sans";
+            font-size: 50px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 65px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         /* Карусель логотипів */
-        .logo-carousel {
+        .logo-carousel-container {
             width: 100%;
-            max-width: 1400px;
+            max-width: 1530px;
+            height: 72px;
+            padding-left: 16px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            flex-shrink: 0;
             overflow: hidden;
-            padding: 0 20px;
+            position: relative;
         }
 
         .logo-track {
             display: flex;
             align-items: center;
-            animation: scroll 50s linear infinite;
+            position: absolute;
+            left: 0;
+            animation: scroll 40s linear infinite;
+            white-space: nowrap;
         }
 
         .logo-item {
@@ -101,40 +113,60 @@
             height: 100%;
             width: auto;
             filter: brightness(0) invert(1);
+            object-fit: contain;
         }
 
-        /* Анімація каруселі */
+        /* Покращена анімація каруселі */
         @keyframes scroll {
             0% {
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(-50%);
+                transform: translateX(-100%);
             }
         }
 
         /* Адаптивність для планшетів */
+        @media (max-width: 1600px) {
+            .logo-carousel-container {
+                width: 90%;
+                max-width: 1400px;
+            }
+        }
+
         @media (max-width: 1024px) {
+            .clients-section {
+                height: 900px;
+            }
+            
             .clients-heading {
-                font-size: 22px;
-                line-height: 32px;
+                font-size: 40px;
+                line-height: 55px;
             }
             
             .clients-heading-box {
                 padding: 30px 60px;
+            }
+            
+            .logo-carousel-container {
+                height: 60px;
+            }
+            
+            .logo-item {
+                margin-right: 60px;
             }
         }
 
         /* Адаптивність для мобільних */
         @media (max-width: 768px) {
             .clients-section {
+                height: 800px;
                 padding: 100px 20px 80px;
-                min-height: 500px;
             }
             
             .clients-heading {
-                font-size: 20px;
-                line-height: 28px;
+                font-size: 32px;
+                line-height: 42px;
             }
             
             .clients-heading-box {
@@ -143,26 +175,45 @@
             
             .logo-item {
                 height: 40px;
-                margin-right: 60px;
+                margin-right: 40px;
+            }
+            
+            .logo-carousel-container {
+                height: 50px;
+                padding-left: 10px;
             }
             
             .logo-track {
-                animation-duration: 60s;
+                animation-duration: 30s;
             }
         }
 
         @media (max-width: 480px) {
+            .clients-section {
+                height: 700px;
+            }
+            
             .clients-heading {
-                font-size: 18px;
-                line-height: 26px;
+                font-size: 28px;
+                line-height: 36px;
             }
             
             .clients-heading-box {
                 padding: 20px 30px;
             }
             
-            .logo-carousel {
+            .logo-carousel-container {
                 padding: 0 10px;
+                height: 45px;
+            }
+            
+            .logo-item {
+                height: 35px;
+                margin-right: 30px;
+            }
+            
+            .logo-track {
+                animation-duration: 25s;
             }
         }
     </style>
@@ -177,44 +228,60 @@
                 </h2>
             </div>
             
-            <div class="logo-carousel">
+            <div class="logo-carousel-container">
                 <div class="logo-track">
-                    <!-- Перший набір логотипів -->
-                    <div class="logo-item">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTUwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9Ijc1IiB5PSIyNSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPk1vc3QgTG9naXN0aWM8L3RleHQ+PC9zdmc+" alt="Most Logistic">
-                    </div>
-                    <div class="logo-item">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTUwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9Ijc1IiB5PSIyNSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPkFncG9zO3Jvc2VtPC90ZXh0Pjwvc3ZnPg==" alt="Агросем">
-                    </div>
-                    <div class="logo-item">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTUwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9Ijc1IiB5PSIyNSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPkZlZWRub3ZhPC90ZXh0Pjwvc3ZnPg==" alt="Feednova">
-                    </div>
-                    <div class="logo-item">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTUwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9Ijc1IiB5PSIyNSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPkVxdWljb3JlPC90ZXh0Pjwvc3ZnPg==" alt="Equicore">
-                    </div>
-                    <div class="logo-item">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTUwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9Ijc1IiB5PSIyNSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPlNWTyBEZXZlbG9wbWVudDwvdGV4dD48L3N2Zz4=" alt="SVO Development">
-                    </div>
-                    
-                    <!-- Дубльований набір для безперервного скролу -->
-                    <div class="logo-item">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTUwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9Ijc1IiB5PSIyNSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPk1vc3QgTG9naXN0aWM8L3RleHQ+PC9zdmc+" alt="Most Logistic">
-                    </div>
-                    <div class="logo-item">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTUwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9Ijc1IiB5PSIyNSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPkFncG9zO3Jvc2VtPC90ZXh0Pjwvc3ZnPg==" alt="Агросем">
-                    </div>
-                    <div class="logo-item">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTUwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9Ijc1IiB5PSIyNSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPkZlZWRub3ZhPC90ZXh0Pjwvc3ZnPg==" alt="Feednova">
-                    </div>
-                    <div class="logo-item">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTUwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9Ijc1IiB5PSIyNSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPkVxdWljb3JlPC90ZXh0Pjwvc3ZnPg==" alt="Equicore">
-                    </div>
-                    <div class="logo-item">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTUwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9Ijc1IiB5PSIyNSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPlNWTyBEZXZlbG9wbWVudDwvdGV4dD48L3N2Zz4=" alt="SVO Development">
-                    </div>
+                    <!-- Логотипи будуть додані через JavaScript -->
                 </div>
             </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoTrack = document.querySelector('.logo-track');
+            const logos = [
+                "{% static 'logo/1.png' %}",
+                "{% static 'logo/2.png' %}",
+                "{% static 'logo/3.png' %}",
+                "{% static 'logo/4.png' %}",
+                "{% static 'logo/5.png' %}",
+                "{% static 'logo/6.png' %}",
+                "{% static 'logo/7.png' %}",
+                "{% static 'logo/8.png' %}",
+                "{% static 'logo/9.png' %}",
+                "{% static 'logo/10.png' %}",
+                "{% static 'logo/11.png' %}"
+            ];
+            
+            const altTexts = [
+                "Логотип 1",
+                "Логотип 2",
+                "Логотип 3",
+                "Логотип 4",
+                "Логотип 5",
+                "Логотип 6",
+                "Логотип 7",
+                "Логотип 8",
+                "Логотип 9",
+                "Логотип 10",
+                "Логотип 11"
+            ];
+            
+            // Створюємо логотипи (подвоюємо для безперервного ефекту)
+            for (let i = 0; i < 3; i++) { // Три копії для плавного переходу
+                logos.forEach((logo, index) => {
+                    const logoItem = document.createElement('div');
+                    logoItem.className = 'logo-item';
+                    
+                    const img = document.createElement('img');
+                    img.src = logo;
+                    img.alt = altTexts[index];
+                    
+                    logoItem.appendChild(img);
+                    logoTrack.appendChild(logoItem);
+                });
+            }
+        });
+    </script>
 </body>
 </html>

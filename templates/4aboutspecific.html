@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -23,11 +24,11 @@
         .hero-section-specific {
             position: relative;
             width: 100%;
-            min-height: 100vh;
+            height: 1085px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-image: url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background: url("{% static 'images/absp.png' %}");
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
@@ -55,17 +56,19 @@
 
         /* Основний заголовок */
         .main-heading {
-            font-size: 30px;
-            font-weight: 700;
-            line-height: 40px;
-            color: #FFFFFF;
-            text-transform: uppercase;
+            color: var(--white, #FFF);
             text-align: center;
-            margin-bottom: 40px;
+            font-family: "TikTok Sans";
+            font-size: 50px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 65px;
+            text-transform: uppercase;
+            margin-bottom: 80px;
         }
 
         .main-heading div {
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
 
         .main-heading div:last-child {
@@ -78,44 +81,122 @@
         }
 
         .metric-value {
-            font-size: 26px;
+            color: var(--white, #FFF);
+            text-align: center;
+            font-family: "TikTok Sans";
+            font-size: 50px;
+            font-style: normal;
             font-weight: 700;
-            color: #FFFFFF;
-            margin-bottom: 8px;
+            line-height: 65px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
         }
 
         .metric-label {
-            font-size: 14px;
+            color: var(--white, #FFF);
+            text-align: center;
+            font-family: "TikTok Sans";
+            font-size: 26px;
+            font-style: normal;
             font-weight: 700;
-            color: #FFFFFF;
+            line-height: 35px;
             text-transform: uppercase;
         }
 
         /* Адаптивність для планшетів */
         @media (max-width: 1024px) {
+            .hero-section-specific {
+                height: 900px;
+            }
+            
             .main-heading {
-                font-size: 26px;
-                line-height: 36px;
+                font-size: 40px;
+                line-height: 55px;
+                margin-bottom: 60px;
             }
             
             .metric-value {
+                font-size: 40px;
+                line-height: 55px;
+            }
+            
+            .metric-label {
                 font-size: 22px;
+                line-height: 30px;
             }
         }
 
         /* Адаптивність для мобільних */
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
+            .hero-section-specific {
+                height: 800px;
+            }
+            
             .main-heading {
-                font-size: 20px;
-                line-height: 28px;
+                font-size: 32px;
+                line-height: 42px;
+                margin-bottom: 50px;
             }
             
             .metric-value {
+                font-size: 32px;
+                line-height: 42px;
+            }
+            
+            .metric-label {
+                font-size: 20px;
+                line-height: 28px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-section-specific {
+                height: 700px;
+            }
+            
+            .main-heading {
+                font-size: 28px;
+                line-height: 36px;
+                margin-bottom: 40px;
+            }
+            
+            .main-heading div {
+                margin-bottom: 8px;
+            }
+            
+            .metric-value {
+                font-size: 28px;
+                line-height: 36px;
+            }
+            
+            .metric-label {
                 font-size: 18px;
+                line-height: 24px;
             }
             
             .hero-content-specific {
                 padding: 0 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section-specific {
+                height: 650px;
+            }
+            
+            .main-heading {
+                font-size: 24px;
+                line-height: 32px;
+            }
+            
+            .metric-value {
+                font-size: 24px;
+                line-height: 32px;
+            }
+            
+            .metric-label {
+                font-size: 16px;
+                line-height: 22px;
             }
         }
     </style>
