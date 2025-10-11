@@ -9,13 +9,13 @@
         <!-- Навігація -->
         <div class="pbc-footer-nav">
             <div class="pbc-footer-row">
-                <a href="#about" class="pbc-footer-link">ПРО НАС ↗</a>
-                <a href="#clients" class="pbc-footer-link">КЛІЄНТИ ↗</a>
-                <a href="#contacts" class="pbc-footer-link">КОНТАКТИ ↗</a>
+                <a href="#about" class="pbc-footer-link">ПРО НАС <span class="arrow">↗</span></a>
+                <a href="#clients" class="pbc-footer-link">КЛІЄНТИ <span class="arrow">↗</span></a>
+                <a href="#contacts" class="pbc-footer-link">КОНТАКТИ <span class="arrow">↗</span></a>
             </div>
             <div class="pbc-footer-row">
-                <a href="#services" class="pbc-footer-link">ПОСЛУГИ ↗</a>
-                <a href="#team" class="pbc-footer-link">КОМАНДА ↗</a>
+                <a href="#services" class="pbc-footer-link">ПОСЛУГИ <span class="arrow">↗</span></a>
+                <a href="#team" class="pbc-footer-link">КОМАНДА <span class="arrow">↗</span></a>
             </div>
         </div>
     </div>
@@ -48,20 +48,23 @@
 .pbc-footer-nav {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
 }
 
 .pbc-footer-row {
     display: flex;
-    gap: 80px;
+    gap: 200px;
     justify-content: flex-end;
 }
 
 .pbc-footer-link {
+    color: var(--white, #FFF);
     font-family: "TikTok Sans", sans-serif;
+    font-size: 18px;
+    font-style: normal;
     font-weight: 700;
-    font-size: 14px;
-    color: #FFFFFF;
+    line-height: 23px;
+    text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 0.5px;
     transition: color 0.3s ease;
@@ -69,6 +72,19 @@
 
 .pbc-footer-link:hover {
     color: #C0C0C0;
+}
+
+/* Стрілочка */
+.pbc-footer-link .arrow {
+    font-size: 22px; /* було б помітно більша */
+    position: relative;
+    top: 1px;
+    margin-left: 3px;
+    transition: transform 0.3s ease;
+}
+
+.pbc-footer-link:hover .arrow {
+    transform: translate(2px, -2px); /* невелика анімація руху при наведенні */
 }
 
 /* Адаптивність */
@@ -92,7 +108,12 @@
 
 @media (max-width: 600px) {
     .pbc-footer-link {
-        font-size: 13px;
+        font-size: 16px;
+        line-height: 21px;
+    }
+
+    .pbc-footer-link .arrow {
+        font-size: 20px;
     }
 }
 </style>
