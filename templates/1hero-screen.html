@@ -64,7 +64,7 @@
 
     .header-page .brand-floating {
       position: absolute;
-      left: 50px;
+      left: 100px;
       top: 50%;
       transform: translateY(-50%);
       z-index: 120;
@@ -92,7 +92,7 @@
 
     .header-page .main-nav ul {
       display: flex;
-      gap: 42px;
+      gap: 60px;
       list-style: none;
     }
 
@@ -344,6 +344,24 @@
       color: var(--white);
       margin-bottom: 20px;
     }
+
+    .header-page .main-nav a {
+  color: var(--white, #FFF);
+  font-family: "TikTok Sans", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23px; /* 127.778% */
+  text-transform: uppercase;
+  text-decoration: none;
+  opacity: 0.95;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.header-page .main-nav a:hover {
+  opacity: 1;
+  color: #C0C0C0; /* легкий відтінок при наведенні */
+}
   </style>
 </head>
 
