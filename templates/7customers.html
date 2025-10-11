@@ -58,10 +58,13 @@
 
         /* Заголовок */
         .clients-heading-box {
-            padding: 40px 80px;
-            background: transparent;
-            max-width: 1000px;
+            width: 1355px;
+            height: 195px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            background: transparent;
             margin-bottom: 60px;
         }
 
@@ -72,9 +75,9 @@
             font-size: 50px;
             font-style: normal;
             font-weight: 700;
-            line-height: 65px;
+            line-height: 65px; /* 130% */
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            width: 100%;
         }
 
         /* Карусель логотипів */
@@ -116,7 +119,7 @@
             object-fit: contain;
         }
 
-        /* Покращена анімація каруселі */
+        /* Анімація каруселі */
         @keyframes scroll {
             0% {
                 transform: translateX(0);
@@ -126,94 +129,45 @@
             }
         }
 
-        /* Адаптивність для планшетів */
-        @media (max-width: 1600px) {
-            .logo-carousel-container {
+        /* Адаптивність */
+        @media (max-width: 1400px) {
+            .clients-heading-box {
                 width: 90%;
-                max-width: 1400px;
+                height: auto;
             }
-        }
-
-        @media (max-width: 1024px) {
-            .clients-section {
-                height: 900px;
-            }
-            
             .clients-heading {
-                font-size: 40px;
+                font-size: 42px;
                 line-height: 55px;
             }
-            
-            .clients-heading-box {
-                padding: 30px 60px;
-            }
-            
-            .logo-carousel-container {
-                height: 60px;
-            }
-            
-            .logo-item {
-                margin-right: 60px;
-            }
         }
 
-        /* Адаптивність для мобільних */
         @media (max-width: 768px) {
             .clients-section {
-                height: 800px;
+                height: 850px;
                 padding: 100px 20px 80px;
             }
-            
             .clients-heading {
                 font-size: 32px;
                 line-height: 42px;
             }
-            
             .clients-heading-box {
-                padding: 25px 40px;
+                width: 90%;
+                padding: 20px;
+                height: auto;
             }
-            
-            .logo-item {
-                height: 40px;
-                margin-right: 40px;
-            }
-            
             .logo-carousel-container {
                 height: 50px;
-                padding-left: 10px;
-            }
-            
-            .logo-track {
-                animation-duration: 30s;
             }
         }
 
         @media (max-width: 480px) {
-            .clients-section {
-                height: 700px;
-            }
-            
             .clients-heading {
-                font-size: 28px;
+                font-size: 26px;
                 line-height: 36px;
             }
-            
-            .clients-heading-box {
-                padding: 20px 30px;
-            }
-            
-            .logo-carousel-container {
-                padding: 0 10px;
-                height: 45px;
-            }
-            
             .logo-item {
-                height: 35px;
                 margin-right: 30px;
-            }
-            
-            .logo-track {
-                animation-duration: 25s;
+                height: 35px;
             }
         }
     </style>
@@ -230,7 +184,7 @@
             
             <div class="logo-carousel-container">
                 <div class="logo-track">
-                    <!-- Логотипи будуть додані через JavaScript -->
+                    <!-- Логотипи додаються скриптом -->
                 </div>
             </div>
         </div>
@@ -268,7 +222,7 @@
             ];
             
             // Створюємо логотипи (подвоюємо для безперервного ефекту)
-            for (let i = 0; i < 3; i++) { // Три копії для плавного переходу
+            for (let i = 0; i < 3; i++) {
                 logos.forEach((logo, index) => {
                     const logoItem = document.createElement('div');
                     logoItem.className = 'logo-item';
