@@ -18,13 +18,12 @@
             background-color: #0F0F0F;
             color: #FFFFFF;
             overflow-x: hidden;
-            
         }
 
         /* ====== СЕКЦІЯ ====== */
         .services-section {
-            width: 100vw;              /* Тягнемо від лівої до правої */
-            margin: 0;                 /* Без автоматичного центрування */
+            width: 100vw;
+            margin: 0;
             padding: 0;
             height: 1080px;
         }
@@ -46,7 +45,10 @@
             align-items: center;
             padding: 40px;
             position: relative;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, background-image 0.5s ease;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .grid-cell:hover {
@@ -55,26 +57,38 @@
 
         /* ====== ІНТРО ====== */
         .intro-cell {
-            align-items: flex-start;
-            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
             background-color: #0F0F0F;
         }
 
+        .intro-content {
+            width: 326px;
+        }
+
         .services-title {
-            font-size: 32px;
-            font-weight: 800;
-            line-height: 42px;
+            color: var(--white, #FFF);
+            text-align: center;
+            font-family: "TikTok Sans";
+            font-size: 50px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 65px; /* 130% */
             text-transform: uppercase;
-            color: #FFFFFF;
             margin-bottom: 20px;
         }
 
         .services-description {
+            color: var(--white, #FFF);
+            text-align: center;
+            font-family: "TikTok Sans";
             font-size: 16px;
-            font-weight: 500;
-            line-height: 22px;
-            color: #B0B0B0;
-            max-width: 260px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 21px; /* 131.25% */
         }
 
         /* ====== СЕРВІС ====== */
@@ -84,12 +98,17 @@
         }
 
         .service-title {
-            font-size: 16px;
+            color: var(--white, #FFF);
+            text-align: center;
+            font-family: "TikTok Sans";
+            font-size: 18px;
+            font-style: normal;
             font-weight: 700;
-            line-height: 22px;
-            color: #FFFFFF;
+            line-height: 23px; /* 127.778% */
             text-transform: uppercase;
             max-width: 240px;
+            z-index: 2;
+            position: relative;
         }
 
         /* ====== СТРІЛКА ====== */
@@ -100,29 +119,48 @@
             width: 55px;
             height: 55px;
             transition: transform 0.3s ease;
+            z-index: 2;
         }
 
         .service-cell:hover .service-arrow {
             transform: translate(3px, -3px);
         }
 
+        /* ====== СПЕЦІАЛЬНИЙ ХОВЕР ====== */
+        .service-cell.handshake-hover:hover {
+            background-image: url("{% static 'images/handshake.png' %}");
+            filter: grayscale(100%);
+        }
+
         /* ====== КВЕД ====== */
         .stats-cell {
-            align-items: flex-start;
-            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
 
         .stats-number {
-            font-size: 48px;
-            font-weight: 800;
-            line-height: 56px;
+            color: var(--white, #FFF);
+            text-align: center;
+            font-family: "TikTok Sans";
+            font-size: 70px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 65px; /* 92.857% */
+            text-transform: uppercase;
             margin-bottom: 10px;
         }
 
         .stats-label {
-            font-size: 26px;
+            color: var(--white, #FFF);
+            text-align: center;
+            font-family: "TikTok Sans";
+            font-size: 50px;
+            font-style: normal;
             font-weight: 700;
-            line-height: 35px;
+            line-height: 65px;
             text-transform: uppercase;
         }
 
@@ -171,14 +209,16 @@
 
             <!-- 1 -->
             <div class="grid-cell intro-cell">
-                <h2 class="services-title">ПОСЛУГИ</h2>
-                <p class="services-description">
-                    Повний спектр юридичних послуг для будівельних компаній, 
-                    девелоперів, інвесторів та приватних замовників
-                </p>
+                <div class="intro-content">
+                    <h2 class="services-title">ПОСЛУГИ</h2>
+                    <p class="services-description">
+                        повний спектр юридичних послуг для будівельних компаній, 
+                        девелоперів, інвесторів та приватних замовників
+                    </p>
+                </div>
             </div>
 
-             <div class="grid-cell empty-cell"></div>
+            <div class="grid-cell empty-cell"></div>
 
             <!-- 2 -->
             <div class="grid-cell service-cell">
@@ -188,7 +228,7 @@
                 </svg>
             </div>
 
-             <div class="grid-cell empty-cell"></div>
+            <div class="grid-cell empty-cell"></div>
 
             <!-- 3 -->
             <div class="grid-cell service-cell">
@@ -197,15 +237,19 @@
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-             <div class="grid-cell empty-cell"></div>
-            <!-- 4 -->
-            <div class="grid-cell service-cell">
-                <h3 class="service-title">ОТРИМАННЯ ДОЗВІЛЬНОЇ ДОКУМЕНТАЦІЇ</h3>
+
+            <div class="grid-cell empty-cell"></div>
+
+            <!-- 4 (спецефект при hover) -->
+            <div class="grid-cell service-cell handshake-hover">
+                <h3 class="service-title">ОТРИМАННЯ ДОЗВІЛЬНОЇ ДОКУМЕНТАЦІЇ НА БУДІВНИЦТВО</h3>
                 <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-             <div class="grid-cell empty-cell"></div>
+
+            <div class="grid-cell empty-cell"></div>
+
             <!-- 5 -->
             <div class="grid-cell service-cell">
                 <h3 class="service-title">СУПРОВІД ПІД ЧАС БУДІВНИЦТВА</h3>
@@ -213,28 +257,35 @@
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-             <div class="grid-cell empty-cell"></div>
 
-               <div class="grid-cell stats-cell">
+            <div class="grid-cell empty-cell"></div>
+
+            <!-- 6 -->
+            <div class="grid-cell stats-cell">
                 <div class="stats-number">14+</div>
                 <div class="stats-label">КВЕД</div>
             </div>
-                 <div class="grid-cell empty-cell"></div>
-                <!-- 12 -->
+
+            <div class="grid-cell empty-cell"></div>
+
+            <!-- 7 -->
             <div class="grid-cell service-cell">
-                <h3 class="service-title">Отримання дозволів і погоджень на будівництво</h3>
+                <h3 class="service-title">ОТРИМАННЯ ДОЗВОЛІВ І ПОГОДЖЕНЬ НА БУДІВНИЦТВО</h3>
                 <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-<div class="grid-cell empty-cell"></div>
-            <!-- 6 -->
+
+            <div class="grid-cell empty-cell"></div>
+
+            <!-- 8 -->
             <div class="grid-cell service-cell">
                 <h3 class="service-title">РЕЄСТРАЦІЯ ПРАВА ВЛАСНОСТІ</h3>
                 <svg class="service-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
+
         </div>
     </section>
 </body>
