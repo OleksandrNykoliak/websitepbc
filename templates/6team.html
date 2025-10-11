@@ -9,16 +9,15 @@
   <style>
     /* ===== Унікальні змінні для блоку ===== */
     .pbc-team-wrapper {
-      --pbc-team-bg: #fafafa;
-      --pbc-team-card-bg: #0f0f0f;
+      --pbc-team-bg: #FAFAFA;
+      --pbc-team-card-bg: #0F0F0F;
       --pbc-team-text-main: #121212;
-      --pbc-team-text-gray: #5D5D5D;
-      --pbc-team-white: #fff;
+      --pbc-team-text-gray: #3B3B3B;
+      --pbc-team-white: #FFFFFF;
       --pbc-team-radius: 20px;
-      --pbc-team-dot: #e8e8e8;
     }
 
-    /* ===== Скидання тільки для цієї секції ===== */
+    /* ===== Скидання ===== */
     .pbc-team-wrapper *,
     .pbc-team-wrapper *::before,
     .pbc-team-wrapper *::after {
@@ -27,47 +26,55 @@
       padding: 0;
     }
 
-    /* ===== Основний контейнер ===== */
+    /* ===== Основна секція ===== */
     .pbc-team-wrapper {
       font-family: "TikTok Sans", sans-serif;
       background-color: var(--pbc-team-bg);
       color: var(--pbc-team-text-main);
-      position: relative;
-      overflow: hidden;
       width: 100%;
+      height: 1081px; /* за вимогою */
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    /* ===== Секція ===== */
     .pbc-team-section {
       width: 100%;
       padding: 120px 40px;
-      background-color: var(--pbc-team-bg);
-      background-image: none; /* вимикає глобальні крапки */
-      background-size: initial;
-      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
     }
 
     /* ===== Заголовок ===== */
     .pbc-team-header {
       text-align: center;
-      max-width: 760px;
-      margin: 0 auto 80px;
+      width: 410px; /* фіксована ширина */
+      margin-bottom: 80px;
     }
 
     .pbc-team-title {
-      font-size: 32px;
-      line-height: 42px;
-      font-weight: 800;
+      color: var(--gray-900, #121212);
+      text-align: center;
+      font-family: "TikTok Sans";
+      font-size: 50px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 65px; /* 130% */
       text-transform: uppercase;
-      color: var(--pbc-team-text-main);
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .pbc-team-description {
+      color: var(--gray-700, #3B3B3B);
+      text-align: center;
+      font-family: "TikTok Sans";
       font-size: 16px;
-      line-height: 23px;
-      font-weight: 500;
-      color: var(--pbc-team-text-gray);
+      font-style: normal;
+      font-weight: 400;
+      line-height: 21px; /* 131.25% */
     }
 
     /* ===== Контейнер карток ===== */
@@ -82,28 +89,29 @@
     }
 
     /* ===== Картка ===== */
-    .pbc-team-card {
-      position: relative;
-      background: var(--pbc-team-card-bg);
-      color: var(--pbc-team-white);
-      border-radius: var(--pbc-team-radius);
-      width: 360px;
-      min-height: 420px;
-      padding: 70px 30px 0;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      isolation: isolate;
-    }
+  .pbc-team-card {
+    display: flex;
+    width: 375px;
+    height: 434px;
+    padding: 90px 30px 30px 30px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 40px;
+    background: var(--gray-900, #121212);
+    color: var(--pbc-team-white);
+    position: relative;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
 
     .pbc-team-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
     }
 
-    /* ===== Іконка-чек ===== */
+    /* ===== Іконка ===== */
     .pbc-team-icon {
       position: absolute;
       top: -26px;
@@ -130,18 +138,23 @@
 
     /* ===== Текст картки ===== */
     .pbc-team-text {
+      color: var(--pbc-team-white);
+      text-align: center;
+      font-family: "TikTok Sans";
       font-size: 16px;
-      line-height: 21px;
+      font-style: normal;
       font-weight: 700;
+      line-height: 21px; /* 131.25% */
       text-transform: uppercase;
-      padding: 0 10px;
+      width: 315px; /* фіксована ширина тексту */
+      margin: 0 auto;
       flex-grow: 1;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    /* ===== Зображення картки ===== */
+    /* ===== Зображення ===== */
     .pbc-team-image {
       width: 100%;
       height: 140px;
@@ -156,9 +169,6 @@
       .pbc-team-section {
         padding: 100px 30px;
       }
-      .pbc-team-cards {
-        gap: 30px;
-      }
       .pbc-team-card {
         width: 300px;
         min-height: 380px;
@@ -168,6 +178,9 @@
     @media (max-width: 768px) {
       .pbc-team-section {
         padding: 80px 20px;
+      }
+      .pbc-team-header {
+        width: 90%;
       }
       .pbc-team-cards {
         flex-direction: column;
