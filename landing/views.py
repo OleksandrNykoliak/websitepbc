@@ -3,6 +3,9 @@ from django.shortcuts import render
 def homepage_view(request):
     return render(request, "base.html")
 
+def s(request):
+    return render(request, "s.html")
+
 # def projects_view(request):
 #     return render(request, "projects.html")
 

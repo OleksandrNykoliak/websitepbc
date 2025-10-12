@@ -1,0 +1,230 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Build Consulting Group - Юридичний супровід будівництва</title>
+    <style>
+        /* Основні стилі */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "TikTok Sans", sans-serif;
+            background-color: #0E1012;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Контейнер секції */
+        .services-section {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Лівий блок */
+        .services-list {
+            flex: 1;
+            background-color: #0E1012;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .services-items {
+            list-style: none;
+        }
+
+        .service-item {
+            margin-bottom: 35px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .service-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .service-text {
+            font-weight: bold;
+            font-size: 17px;
+            line-height: 22px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .expertise-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 30px;
+            border: 2px solid #fff;
+            background-color: transparent;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .expertise-btn:hover {
+            background-color: #2F8000;
+            color: #fff;
+            border-color: #2F8000;
+        }
+
+        .btn-icon {
+            width: 16px;
+            height: 16px;
+            margin-left: 10px;
+        }
+
+        /* Правий блок */
+        .services-visual {
+            flex: 1;
+            background-color: #0E1012;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 60px 40px;
+            border-left: 2px solid var(--white, #FFF);
+
+        }
+
+        .team-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            margin-bottom: 40px;
+            filter: grayscale(100%);
+        }
+
+        .details-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 30px;
+            border: 2px solid #fff;
+            background-color: transparent;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            align-self: flex-start;
+        }
+
+        .details-btn:hover {
+            background-color: #2F8000;
+            color: #fff;
+            border-color: #2F8000;
+        }
+
+        .spikes-pattern {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 150px;
+            height: 300px;
+            background-image: 
+                linear-gradient(45deg, transparent 50%, #2F8000 50%),
+                linear-gradient(-45deg, transparent 50%, #2F8000 50%);
+            background-size: 30px 30px;
+            background-repeat: repeat-y;
+            background-position: right bottom;
+            opacity: 0.7;
+        }
+
+        /* Адаптивність */
+        @media (max-width: 768px) {
+            .services-section {
+                flex-direction: column;
+            }
+
+            .services-visual {
+                border-left: none;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .team-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="services-section">
+        <!-- Лівий блок зі списком послуг -->
+        <div class="services-list">
+            <ul class="services-items">
+                <li class="service-item">
+                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="service-text">DUE DILIGENCE ЗЕМЕЛЬНОЇ ДІЛЯНКИ</span>
+                </li>
+                <li class="service-item">
+                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="service-text">ПІДГОТОВКА ДОГОВОРІВ ПІДРЯДУ, ОРЕНДИ, КУПІВЛІ-ПРОДАЖУ</span>
+                </li>
+                <li class="service-item">
+                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="service-text">ОТРИМАННЯ ДОЗВІЛЬНОЇ ДОКУМЕНТАЦІЇ НА БУДІВНИЦТВО</span>
+                </li>
+                <li class="service-item">
+                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="service-text">СУПРОВІД ПІД ЧАС БУДІВНИЦТВА</span>
+                </li>
+                <li class="service-item">
+                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="service-text">ВВЕДЕННЯ ОБ'ЄКТА В ЕКСПЛУАТАЦІЮ</span>
+                </li>
+                <li class="service-item">
+                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="service-text">РЕЄСТРАЦІЯ ПРАВА ВЛАСНОСТІ</span>
+                </li>
+            </ul>
+            
+            <a href="#" class="expertise-btn">
+                ЕКСПЕРТИЗА
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+        
+        <!-- Правий блок з зображенням -->
+        <div class="services-visual">
+            <img src="{% static 'images/teampbc.png' %}" alt="Команда PBC на будівельному майданчику" class="team-image">
+
+            <a href="#" class="details-btn">
+                ДЕТАЛІ
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+            
+        </div>
+    </section>
+</body>
+</html>
