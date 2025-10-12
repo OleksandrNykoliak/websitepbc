@@ -362,6 +362,25 @@
   opacity: 1;
   color: #C0C0C0; /* легкий відтінок при наведенні */
 }
+/* === Стрілочка біля пункту "ПОСЛУГИ" === */
+.header-page .main-nav li:nth-child(2) a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.header-page .main-nav li:nth-child(2) a::after {
+  content: "";
+  display: inline-block;
+  width: 14.175px;
+  height: 14.175px;
+  background: url("{% static 'images/icons/arrowdown.png' %}") center/contain no-repeat;
+  transition: transform 0.25s ease;
+}
+
+
+
+
   </style>
 </head>
 
