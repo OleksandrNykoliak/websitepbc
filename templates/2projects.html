@@ -66,7 +66,7 @@
     }
 
     .project-image {
-      width: 200px;
+      width: 220px;
       flex-shrink: 0;
       aspect-ratio: 262 / 327;
       object-fit: cover;
@@ -127,12 +127,7 @@
       opacity: 1;
     }
 
-    .project-description {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 20px;
-      text-align: center;
-    }
+ 
 
     .description-title {
       color: var(--white, #FFF);
@@ -233,14 +228,20 @@
         height: 55px;
       }
     }
+   .project-description {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: center;
+    }
 
     .project-description {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* вирівнює вліво */
-  margin-top: 40px;
-  margin-left: 80px; /* підкорегуй за потреби */
-}
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; /* вирівнює вліво */
+      margin-top: 40px;
+      margin-left: 0px; /* підкорегуй за потреби */
+    }
 
 .description-title {
   color: var(--white, #FFF);
@@ -252,6 +253,9 @@
   text-transform: uppercase;
   width: 243px; /* як ти вказав */
   margin-bottom: 10px;
+  text-align: left;     /* ← вирівнює текст по лівому краю */
+  margin-left: 0;       /* ← скидає можливі відступи */
+  padding-left: 0; 
 }
 
 .description-subtitle {
@@ -261,7 +265,9 @@
   font-style: normal;
   font-weight: 400;
   line-height: 21px;
-  width: 250px; /* фіксована ширина */
+  width: 230px; /* фіксована ширина */
+  margin-left: -20px;       /* ← скидає можливі відступи */
+  padding-left: 0; 
 }
 
   </style>
