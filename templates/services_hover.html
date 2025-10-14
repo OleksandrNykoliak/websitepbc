@@ -30,35 +30,43 @@
         .services-list {
             flex: 1;
             background-color: #0E1012;
-            padding: 60px 40px;
+            padding: 60px 250px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
         }
 
         .services-items {
             list-style: none;
+            text-align: left;
+            padding-left: 0;
         }
 
         .service-item {
             margin-bottom: 35px;
             display: flex;
             align-items: flex-start;
+            justify-content: flex-start;
         }
 
         .service-icon {
-            width: 20px;
-            height: 20px;
-            margin-right: 15px;
+            width: 55.003px;
+            height: 55.003px;
+            margin-right: 18px;
             flex-shrink: 0;
         }
 
         .service-text {
-            font-weight: bold;
-            font-size: 17px;
-            line-height: 22px;
+            color: var(--white, #FFF);
+            font-family: "TikTok Sans", sans-serif;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 23px;
             text-transform: uppercase;
-            color: #fff;
+            text-align: left;
         }
 
         .expertise-btn {
@@ -74,6 +82,10 @@
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
+            margin-top: 40px;
+            margin-left: 90px;
+            position: relative;
+            left: 0;
         }
 
         .expertise-btn:hover {
@@ -92,25 +104,34 @@
         .services-visual {
             flex: 1;
             background-color: #0E1012;
-            position: relative;
+            border-left: 2px solid var(--white, #FFF);
             display: flex;
             flex-direction: column;
+            justify-content: center; /* по вертикалі */
+            align-items: center; /* по горизонталі */
             padding: 60px 40px;
-            border-left: 2px solid var(--white, #FFF);
+            position: relative;
+        }
 
+        /* Контейнер зображення + кнопки */
+        .visual-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* кнопка буде по лівому краю фото */
         }
 
         .team-image {
-            width: 100%;
-            height: 400px;
+            width: 621px;
+            height: 414px;
             object-fit: cover;
-            margin-bottom: 40px;
             filter: grayscale(100%);
+            margin-bottom: 40px;
         }
 
         .details-btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             padding: 15px 30px;
             border: 2px solid #fff;
             background-color: transparent;
@@ -121,28 +142,12 @@
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
-            align-self: flex-start;
         }
 
         .details-btn:hover {
             background-color: #2F8000;
             color: #fff;
             border-color: #2F8000;
-        }
-
-        .spikes-pattern {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 150px;
-            height: 300px;
-            background-image: 
-                linear-gradient(45deg, transparent 50%, #2F8000 50%),
-                linear-gradient(-45deg, transparent 50%, #2F8000 50%);
-            background-size: 30px 30px;
-            background-repeat: repeat-y;
-            background-position: right bottom;
-            opacity: 0.7;
         }
 
         /* Адаптивність */
@@ -154,51 +159,82 @@
             .services-visual {
                 border-left: none;
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
+                justify-content: center;
+                align-items: center;
+            }
+
+            .visual-content {
+                align-items: center; /* кнопка теж буде по центру на мобільному */
             }
 
             .team-image {
-                height: 300px;
+                width: 100%;
+                height: auto;
+            }
+
+            .expertise-btn {
+                align-self: flex-start;
+                margin-top: 30px;
             }
         }
+.services-list {
+    flex: 1;
+    background-color: #0E1012;
+    padding: 60px 100px; /* менший відступ, щоб не тиснув праву частину */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+}
+
+.services-items {
+    list-style: none;
+    text-align: left;
+    margin-left: 80px; /* створює красивий відступ списків вправо */
+    padding-left: 0;
+}
+
+        
     </style>
 </head>
 <body>
     <section class="services-section">
-        <!-- Лівий блок зі списком послуг -->
+        <!-- Лівий блок -->
         <div class="services-list">
             <ul class="services-items">
                 <li class="service-item">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="service-icon" viewBox="0 0 24 24" fill="none">
                         <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span class="service-text">DUE DILIGENCE ЗЕМЕЛЬНОЇ ДІЛЯНКИ</span>
+                    <span class="service-text">DUE DILIGENCE ЗЕМЕЛЬНОЇ<br> ДІЛЯНКИ</span>
                 </li>
                 <li class="service-item">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="service-icon" viewBox="0 0 24 24" fill="none">
                         <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span class="service-text">ПІДГОТОВКА ДОГОВОРІВ ПІДРЯДУ, ОРЕНДИ, КУПІВЛІ-ПРОДАЖУ</span>
+                    <span class="service-text">ПІДГОТОВКА ДОГОВОРІВ ПІДРЯДУ,<br> ОРЕНДИ, КУПІВЛІ-ПРОДАЖУ</span>
                 </li>
                 <li class="service-item">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="service-icon" viewBox="0 0 24 24" fill="none">
                         <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span class="service-text">ОТРИМАННЯ ДОЗВІЛЬНОЇ ДОКУМЕНТАЦІЇ НА БУДІВНИЦТВО</span>
+                    <span class="service-text">ОТРИМАННЯ ДОЗВІЛЬНОЇ<br> ДОКУМЕНТАЦІЇ НА БУДІВНИЦТВО</span>
                 </li>
                 <li class="service-item">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="service-icon" viewBox="0 0 24 24" fill="none">
                         <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                     <span class="service-text">СУПРОВІД ПІД ЧАС БУДІВНИЦТВА</span>
                 </li>
                 <li class="service-item">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="service-icon" viewBox="0 0 24 24" fill="none">
                         <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span class="service-text">ВВЕДЕННЯ ОБ'ЄКТА В ЕКСПЛУАТАЦІЮ</span>
+                    <span class="service-text">ВВЕДЕННЯ ОБ'ЄКТА В<br> ЕКСПЛУАТАЦІЮ</span>
                 </li>
                 <li class="service-item">
-                    <svg class="service-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="service-icon" viewBox="0 0 24 24" fill="none">
                         <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                     <span class="service-text">РЕЄСТРАЦІЯ ПРАВА ВЛАСНОСТІ</span>
@@ -207,23 +243,24 @@
             
             <a href="#" class="expertise-btn">
                 ЕКСПЕРТИЗА
-                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </a>
         </div>
         
-        <!-- Правий блок з зображенням -->
+        <!-- Правий блок -->
         <div class="services-visual">
-            <img src="{% static 'images/teampbc.png' %}" alt="Команда PBC на будівельному майданчику" class="team-image">
+            <div class="visual-content">
+                <img src="{% static 'images/teampbc.png' %}" alt="Команда PBC" class="team-image">
 
-            <a href="#" class="details-btn">
-                ДЕТАЛІ
-                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </a>
-            
+                <a href="#" class="details-btn">
+                    ДЕТАЛІ
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
         </div>
     </section>
 </body>
