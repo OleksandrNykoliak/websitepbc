@@ -42,6 +42,31 @@
         {% block content %}
         {% endblock %}
     </main>
+
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const servicesLink = document.querySelector('.main-nav li:nth-child(2) a');
+  const overlay = document.querySelector('.services-overlay');
+
+  // Показати при ховері
+  servicesLink.addEventListener('mouseenter', () => {
+    overlay.classList.add('active');
+  });
+
+  // При відведенні курсору — сховати з невеликою затримкою
+  overlay.addEventListener('mouseleave', () => {
+    overlay.classList.remove('active');
+  });
+
+  // Або кліком поза блоком можна теж сховати
+  overlay.addEventListener('click', (e) => {
+    if (e.target.classList.contains('services-overlay')) {
+      overlay.classList.remove('active');
+    }
+  });
+});
+</script>
+
 </body>
 </html>
 
