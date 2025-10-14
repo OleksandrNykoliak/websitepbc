@@ -6,6 +6,9 @@
     <title>{% block title %}PBC{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <style>
+        html {
+            scroll-behavior: smooth;
+            }
         :root {
             --bg: #121212;
             --panel: #121212;
@@ -31,41 +34,57 @@
 <body>
     {% include '1hero-screen.html' %}
     {% include '2projects.html' %}
-    {% include '3aboutcompany.html' %} 
+    {% include '3aboutcompany.html' %}
     {% include '4aboutspecific.html' %}
-    {% include '5services.html' %}
+    {% include '5services.html' with id="services" %}
     {% include '6team.html' %}
     {% include '7customers.html' %}
-    {% include '8contact.html' %}
+    {% include '8contact.html' with id="contact" %}
     {% include '9footer.html' %}
     <main class="container">
         {% block content %}
         {% endblock %}
     </main>
 
-    <script>
+<script>
 document.addEventListener("DOMContentLoaded", () => {
+  /* === OVERLAY ПОСЛУГИ === */
   const servicesLink = document.querySelector('.main-nav li:nth-child(2) a');
   const overlay = document.querySelector('.services-overlay');
 
-  // Показати при ховері
-  servicesLink.addEventListener('mouseenter', () => {
-    overlay.classList.add('active');
-  });
+  if (servicesLink && overlay) {
+    servicesLink.addEventListener('mouseenter', () => {
+      overlay.classList.add('active');
+    });
 
-  // При відведенні курсору — сховати з невеликою затримкою
-  overlay.addEventListener('mouseleave', () => {
-    overlay.classList.remove('active');
-  });
-
-  // Або кліком поза блоком можна теж сховати
-  overlay.addEventListener('click', (e) => {
-    if (e.target.classList.contains('services-overlay')) {
+    overlay.addEventListener('mouseleave', () => {
       overlay.classList.remove('active');
-    }
+    });
+
+    overlay.addEventListener('click', (e) => {
+      if (e.target.classList.contains('services-overlay')) {
+        overlay.classList.remove('active');
+      }
+    });
+  }
+
+  /* === ПЛАВНИЙ СКРОЛ ДО СЕКЦІЙ === */
+  const links = document.querySelectorAll('.main-nav a[href^="#"]');
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href');
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        const offset = 160; // висота шапки
+        const top = targetEl.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
   });
 });
 </script>
+
 
 </body>
 </html>
