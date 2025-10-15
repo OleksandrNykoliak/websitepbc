@@ -126,77 +126,166 @@
             }
         }
 
-        /* Адаптивність для мобільних */
+        /* ===== МОБІЛЬНА АДАПТАЦІЯ (тільки для екранів до 768px) ===== */
         @media (max-width: 768px) {
             .hero-section-specific {
-                height: 800px;
-            }
-            
-            .main-heading {
-                font-size: 32px;
-                line-height: 42px;
-                margin-bottom: 50px;
-            }
-            
-            .metric-value {
-                font-size: 32px;
-                line-height: 42px;
-            }
-            
-            .metric-label {
-                font-size: 20px;
-                line-height: 28px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .hero-section-specific {
-                height: 700px;
-            }
-            
-            .main-heading {
-                font-size: 28px;
-                line-height: 36px;
-                margin-bottom: 40px;
-            }
-            
-            .main-heading div {
-                margin-bottom: 8px;
-            }
-            
-            .metric-value {
-                font-size: 28px;
-                line-height: 36px;
-            }
-            
-            .metric-label {
-                font-size: 18px;
-                line-height: 24px;
+                height: 100vh;
+                min-height: 667px;
+                max-height: 900px;
+                padding: 20px 0;
             }
             
             .hero-content-specific {
                 padding: 0 24px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-section-specific {
-                height: 650px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 100%;
             }
             
             .main-heading {
-                font-size: 24px;
-                line-height: 32px;
+                font-size: clamp(20px, 6vw, 32px);
+                line-height: 1.3;
+                margin-bottom: clamp(30px, 8vw, 50px);
+            }
+            
+            .main-heading div {
+                margin-bottom: clamp(8px, 2vw, 12px);
+                opacity: 0;
+                transform: translateY(20px);
+                animation: fadeInUp 0.6s ease forwards;
+            }
+            
+            .main-heading div:nth-child(1) { animation-delay: 0.1s; }
+            .main-heading div:nth-child(2) { animation-delay: 0.2s; }
+            .main-heading div:nth-child(3) { animation-delay: 0.3s; }
+            .main-heading div:nth-child(4) { animation-delay: 0.4s; }
+            
+            .metric-block {
+                margin-top: clamp(20px, 6vw, 40px);
+                opacity: 0;
+                animation: fadeInUp 0.6s ease 0.5s forwards;
             }
             
             .metric-value {
-                font-size: 24px;
-                line-height: 32px;
+                font-size: clamp(28px, 8vw, 42px);
+                line-height: 1.2;
+                margin-bottom: 8px;
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
+            
+            .metric-label {
+                font-size: clamp(16px, 4vw, 22px);
+                line-height: 1.3;
+                padding: 0 10px;
+            }
+            
+            @keyframes fadeInUp {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
+
+        /* Додаткова оптимізація для дуже малих екранів */
+        @media (max-width: 480px) {
+            .hero-section-specific {
+                min-height: 568px;
+            }
+            
+            .hero-content-specific {
+                padding: 0 20px;
+            }
+            
+            .main-heading {
+                margin-bottom: 30px;
+            }
+            
+            .main-heading div {
+                margin-bottom: 6px;
+            }
+            
+            .metric-block {
+                margin-top: 25px;
+            }
+            
+            .metric-value {
+                font-size: 32px;
+                line-height: 1.1;
             }
             
             .metric-label {
                 font-size: 16px;
-                line-height: 22px;
+                line-height: 1.2;
+            }
+        }
+
+        /* Горизонтальна орієнтація на мобільних */
+        @media (max-width: 768px) and (max-height: 500px) {
+            .hero-section-specific {
+                height: 100vh;
+                min-height: 400px;
+            }
+            
+            .hero-content-specific {
+                padding: 40px 24px;
+            }
+            
+            .main-heading {
+                font-size: 20px;
+                line-height: 1.2;
+                margin-bottom: 25px;
+            }
+            
+            .main-heading div {
+                margin-bottom: 4px;
+            }
+            
+            .metric-block {
+                margin-top: 20px;
+            }
+            
+            .metric-value {
+                font-size: 24px;
+            }
+            
+            .metric-label {
+                font-size: 14px;
+            }
+        }
+
+        /* Покращення для планшетів у портретній орієнтації */
+        @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+            .hero-section-specific {
+                height: 80vh;
+            }
+            
+            .main-heading {
+                font-size: 36px;
+                line-height: 1.3;
+            }
+            
+            .metric-value {
+                font-size: 36px;
+            }
+            
+            .metric-label {
+                font-size: 20px;
+            }
+        }
+
+        /* Підтримка високих екранів */
+        @media (min-width: 769px) and (min-height: 1000px) {
+            .hero-section-specific {
+                height: 80vh;
+            }
+        }
+
+        /* Поліпшення читабельності на яскравих фонах */
+        @media (max-width: 768px) {
+            .hero-section-specific::before {
+                background-color: rgba(0, 0, 0, 0.5);
             }
         }
     </style>
@@ -217,5 +306,44 @@
             </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Додаємо клас для анімації при завантаженні
+            const heroSection = document.querySelector('.hero-section-specific');
+            
+            // Оптимізація для мобільних пристроїв
+            if (window.innerWidth <= 768) {
+                // Додаємо обробник для зміни орієнтації
+                window.addEventListener('resize', function() {
+                    // Примусове оновлення висоти при зміні розміру
+                    heroSection.style.height = '100vh';
+                });
+                
+                // Запобігаємо масштабуванню при фокусі на iOS
+                const viewport = document.querySelector('meta[name="viewport"]');
+                if (viewport && /iPhone|iPad|iPod/.test(navigator.userAgent)) {
+                    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+                }
+            }
+            
+            // Плавне завантаження контенту
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Поліпшення для Safari на iOS
+        if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+            document.documentElement.style.height = '-webkit-fill-available';
+            document.body.style.height = '-webkit-fill-available';
+            
+            const heroSection = document.querySelector('.hero-section-specific');
+            if (heroSection) {
+                heroSection.style.height = '100vh';
+                heroSection.style.height = '-webkit-fill-available';
+            }
+        }
+    </script>
 </body>
 </html>

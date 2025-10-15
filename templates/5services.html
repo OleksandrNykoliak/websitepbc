@@ -170,35 +170,196 @@
             pointer-events: none;
         }
 
-        /* ====== АДАПТИВ ====== */
-        @media (max-width: 1280px) {
+        /* ====== МОБІЛЬНА ВЕРСІЯ (тільки до 768px) ====== */
+        @media (max-width: 768px) {
+            .services-section {
+                height: auto;
+                min-height: 100vh;
+                padding: 20px 0;
+            }
+
             .services-grid {
-                grid-template-columns: repeat(3, 1fr);
-                grid-template-rows: repeat(7, 280px);
+                grid-template-columns: 1fr !important;
+                grid-template-rows: auto !important;
+                gap: 0;
+                border: none;
+            }
+
+            .empty-cell {
+                display: none !important;
+            }
+
+            .grid-cell {
+                min-height: 280px;
+                padding: 30px 20px;
+                border: 1px solid #333;
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .intro-cell {
+                min-height: 300px;
+                background: #0F0F0F !important;
+            }
+
+            .intro-content {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .services-title {
+                font-size: clamp(32px, 8vw, 42px);
+                line-height: 1.2;
+                margin-bottom: 15px;
+            }
+
+            .services-description {
+                font-size: clamp(14px, 4vw, 16px);
+                line-height: 1.4;
+            }
+
+            .service-cell {
+                background: #1a1a1a;
+                transition: all 0.3s ease;
+            }
+
+            .service-cell:active {
+                background: #2a2a2a;
+                transform: scale(0.98);
+            }
+
+            .service-title {
+                font-size: clamp(16px, 4.5vw, 20px);
+                line-height: 1.3;
+                max-width: 280px;
+            }
+
+            .service-arrow {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .stats-cell {
+                min-height: 250px;
+                background: #0F0F0F;
+            }
+
+            .stats-number {
+                font-size: clamp(42px, 10vw, 56px);
+                line-height: 1;
+                margin-bottom: 8px;
+            }
+
+            .stats-label {
+                font-size: clamp(28px, 8vw, 36px);
+                line-height: 1.1;
+            }
+
+            /* Спецефект для мобільних */
+            .service-cell.handshake-hover:active {
+                background-image: url("{% static 'images/handshake.png' %}");
+                background-size: cover;
+                background-position: center;
+                filter: grayscale(100%) brightness(0.7);
+            }
+
+            /* Анімації для мобільних */
+            .grid-cell {
+                opacity: 0;
+                transform: translateY(20px);
+                animation: fadeInUp 0.6s ease forwards;
+            }
+
+            .grid-cell:nth-child(1) { animation-delay: 0.1s; }
+            .grid-cell:nth-child(2) { animation-delay: 0.2s; }
+            .grid-cell:nth-child(3) { animation-delay: 0.3s; }
+            .grid-cell:nth-child(4) { animation-delay: 0.4s; }
+            .grid-cell:nth-child(5) { animation-delay: 0.5s; }
+            .grid-cell:nth-child(6) { animation-delay: 0.6s; }
+            .grid-cell:nth-child(7) { animation-delay: 0.7s; }
+            .grid-cell:nth-child(8) { animation-delay: 0.8s; }
+
+            @keyframes fadeInUp {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
             }
         }
 
-        @media (max-width: 768px) {
+        /* Додаткова оптимізація для дуже малих екранів */
+        @media (max-width: 480px) {
+            .services-section {
+                padding: 15px 0;
+            }
+
+            .grid-cell {
+                min-height: 240px;
+                padding: 25px 15px;
+            }
+
+            .intro-cell {
+                min-height: 280px;
+            }
+
+            .service-title {
+                max-width: 250px;
+            }
+
+            .service-arrow {
+                width: 35px;
+                height: 35px;
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .stats-cell {
+                min-height: 220px;
+            }
+        }
+
+        /* Горизонтальна орієнтація на мобільних */
+        @media (max-width: 768px) and (max-height: 500px) {
+            .grid-cell {
+                min-height: 200px;
+                padding: 20px 15px;
+            }
+
+            .intro-cell {
+                min-height: 220px;
+            }
+
+            .services-title {
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+
+            .service-title {
+                font-size: 16px;
+            }
+
+            .stats-number {
+                font-size: 36px;
+            }
+
+            .stats-label {
+                font-size: 24px;
+            }
+        }
+
+        /* Планшетна версія (769px - 1024px) - мінімальні зміни */
+        @media (min-width: 769px) and (max-width: 1024px) {
             .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(10, 260px);
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(7, 280px);
             }
 
             .intro-cell,
             .stats-cell {
                 align-items: center;
                 text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-                grid-template-rows: repeat(20, 240px);
-            }
-
-            .service-title {
-                font-size: 14px;
             }
         }
     </style>
@@ -288,5 +449,54 @@
 
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Оптимізація для мобільних пристроїв
+            if (window.innerWidth <= 768) {
+                // Замінюємо hover на touch для мобільних
+                const serviceCells = document.querySelectorAll('.service-cell');
+                
+                serviceCells.forEach(cell => {
+                    cell.addEventListener('touchstart', function() {
+                        this.style.backgroundColor = '#2a2a2a';
+                    });
+                    
+                    cell.addEventListener('touchend', function() {
+                        setTimeout(() => {
+                            this.style.backgroundColor = '';
+                        }, 150);
+                    });
+                });
+
+                // Спецефект для handshake клітинки
+                const handshakeCell = document.querySelector('.handshake-hover');
+                if (handshakeCell) {
+                    handshakeCell.addEventListener('touchstart', function() {
+                        this.style.backgroundImage = "url('{% static 'images/handshake.png' %}')";
+                        this.style.filter = 'grayscale(100%) brightness(0.7)';
+                    });
+                    
+                    handshakeCell.addEventListener('touchend', function() {
+                        setTimeout(() => {
+                            this.style.backgroundImage = '';
+                            this.style.filter = '';
+                        }, 300);
+                    });
+                }
+            }
+
+            // Перевірка зміни орієнтації
+            window.addEventListener('resize', function() {
+                if (window.innerWidth <= 768) {
+                    // Оновлюємо висоту секції для мобільних
+                    const section = document.querySelector('.services-section');
+                    if (section) {
+                        section.style.height = 'auto';
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>

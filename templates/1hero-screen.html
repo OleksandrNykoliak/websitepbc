@@ -346,111 +346,320 @@
     }
 
     .header-page .main-nav a {
-  color: var(--white, #FFF);
-  font-family: "TikTok Sans", sans-serif;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 23px; /* 127.778% */
-  text-transform: uppercase;
-  text-decoration: none;
-  opacity: 0.95;
-  transition: opacity 0.2s ease, color 0.2s ease;
-}
+      color: var(--white, #FFF);
+      font-family: "TikTok Sans", sans-serif;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 23px;
+      text-transform: uppercase;
+      text-decoration: none;
+      opacity: 0.95;
+      transition: opacity 0.2s ease, color 0.2s ease;
+    }
 
-.header-page .main-nav a:hover {
-  opacity: 1;
-  color: #C0C0C0; /* легкий відтінок при наведенні */
-}
-/* === Стрілочка біля пункту "ПОСЛУГИ" === */
-.header-page .main-nav li:nth-child(2) a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
+    .header-page .main-nav a:hover {
+      opacity: 1;
+      color: #C0C0C0;
+    }
 
-.header-page .main-nav li:nth-child(2) a::after {
-  content: "";
-  display: inline-block;
-  width: 14.175px;
-  height: 14.175px;
-  background: url("{% static 'images/icons/arrowdown.png' %}") center/contain no-repeat;
-  transition: transform 0.25s ease;
-}
+    /* === Стрілочка біля пункту "ПОСЛУГИ" === */
+    .header-page .main-nav li:nth-child(2) a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-/* === SERVICES OVERLAY === */
-.services-overlay {
-  position: fixed;
-  top: 183px; /* 👈 починається нижче за шапку */
-  left: 0;
-  width: 100vw;
-  height: calc(100vh - 179px); /* 👈 щоб не накривати header */
-  backdrop-filter: blur(10px);
-  background: rgba(0, 0, 0, 0.92);
-  display: flex;
-  justify-content: flex-start; /* 👈 вирівнюємо контент ліворуч */
-  align-items: flex-start;
-  z-index: 100; /* нижче за header, щоб меню було зверху */
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-  overflow: hidden; /* без скролів */
-}
+    .header-page .main-nav li:nth-child(2) a::after {
+      content: "";
+      display: inline-block;
+      width: 14.175px;
+      height: 14.175px;
+      background: url("{% static 'images/icons/arrowdown.png' %}") center/contain no-repeat;
+      transition: transform 0.25s ease;
+    }
 
-.services-overlay.active {
-  opacity: 1;
-  pointer-events: auto;
-}
+    /* === SERVICES OVERLAY === */
+    .services-overlay {
+      position: fixed;
+      top: 183px;
+      left: 0;
+      width: 100vw;
+      height: calc(100vh - 179px);
+      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.92);
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      overflow: hidden;
+    }
 
-/* Контейнер контенту */
-.services-overlay .overlay-content {
-  width: 100%;
-  height: 100%;
-  animation: dropDown 0.5s cubic-bezier(0.25, 1, 0.3, 1) forwards;
-  transform: translateY(-40px);
-  opacity: 0;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
+    .services-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
 
-.services-overlay.active .overlay-content {
-  transform: translateY(0);
-  opacity: 1;
-}
+    /* Контейнер контенту */
+    .services-overlay .overlay-content {
+      width: 100%;
+      height: 100%;
+      animation: dropDown 0.5s cubic-bezier(0.25, 1, 0.3, 1) forwards;
+      transform: translateY(-40px);
+      opacity: 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
 
-/* Кнопка закриття */
-.close-overlay {
-  position: absolute;
-  top: 30px;
-  right: 40px;
-  font-size: 48px;
-  background: none;
-  border: none;
-  color: #ffffff;
-  cursor: pointer;
-  z-index: 300; /* вище за overlay */
-  transition: transform 0.3s ease, color 0.3s ease;
-}
+    .services-overlay.active .overlay-content {
+      transform: translateY(0);
+      opacity: 1;
+    }
 
-.close-overlay:hover {
-  transform: scale(1.1);
-  color: #2F8000;
-}
+    /* Кнопка закриття */
+    .close-overlay {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 48px;
+      background: none;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      z-index: 300;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
 
-/* Ефект плавного випадання */
-@keyframes dropDown {
-  0% {
-    transform: translateY(-60px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
+    .close-overlay:hover {
+      transform: scale(1.1);
+      color: #2F8000;
+    }
 
+    /* Ефект плавного випадання */
+    @keyframes dropDown {
+      0% {
+        transform: translateY(-60px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
 
+    /* ===== МОБІЛЬНА ВЕРСІЯ ===== */
+    @media (max-width: 768px) {
+      /* Заголовок */
+      .header-page .site-header {
+        height: 100px;
+        padding: 0 20px;
+      }
+
+      .header-page .header-inner {
+        width: 100%;
+        grid-template-columns: 1fr auto;
+        gap: 20px;
+      }
+
+      /* Логотип */
+      .header-page .brand-floating {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        width: 150px;
+        height: 45px;
+        gap: 10px;
+        justify-self: start;
+      }
+
+      /* Навігація - бургер меню */
+      .header-page .main-nav {
+        position: fixed;
+        top: 100px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 100px);
+        background: var(--bg);
+        transition: left 0.3s ease;
+        z-index: 1000;
+        padding: 40px 20px;
+      }
+
+      .header-page .main-nav.active {
+        left: 0;
+      }
+
+      .header-page .main-nav ul {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+      }
+
+      .header-page .main-nav a {
+        font-size: 20px;
+      }
+
+      /* Бургер-іконка */
+      .burger-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        cursor: pointer;
+        z-index: 1001;
+      }
+
+      .burger-menu span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background: var(--white);
+        transition: all 0.3s ease;
+      }
+
+      .burger-menu.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .burger-menu.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .burger-menu.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      /* Герой секція */
+      .header-page .hero {
+        height: 70vh;
+        padding-left: 20px;
+        padding-right: 20px;
+        justify-content: center;
+      }
+
+      .header-page .hero-content {
+        width: 100%;
+        padding: 0 20px;
+      }
+
+      .header-page .hero h1 {
+        font-size: 32px;
+        line-height: 1.2;
+        margin-bottom: 15px;
+      }
+
+      .header-page .hero p {
+        font-size: 18px;
+        line-height: 1.3;
+        margin-bottom: 30px;
+      }
+
+      /* Права панель */
+      .header-page .rail {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 40px 20px;
+        align-items: center;
+        text-align: center;
+      }
+
+      .header-page .rail h3,
+      .header-page .rail p {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .header-page .rail h3 {
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+
+      .header-page .rail p {
+        font-size: 16px;
+        margin-bottom: 25px;
+      }
+
+      /* Білі лінії */
+      .header-page .line-horizontal {
+        top: 100px;
+      }
+
+      .header-page .line-vertical {
+        display: none;
+      }
+
+      /* Іконка вниз */
+      .header-page .icon-down {
+        left: 20px;
+        width: calc(100% - 40px);
+        bottom: 30px;
+      }
+
+      .header-page .icon-down img {
+        width: 80px;
+        height: 80px;
+      }
+
+      /* Кнопка */
+      .header-page .btn-outline {
+        padding: 15px 25px;
+        width: 160px;
+        font-size: 16px;
+      }
+
+      /* Overlay для послуг */
+      .services-overlay {
+        top: 100px;
+        height: calc(100vh - 100px);
+      }
+
+      .close-overlay {
+        top: 20px;
+        right: 20px;
+        font-size: 36px;
+      }
+
+      /* Контент секція */
+      .header-page .content-section {
+        padding: 60px 20px;
+        max-width: 100%;
+      }
+
+      .header-page .content-section h2 {
+        font-size: 28px;
+      }
+
+      .header-page .content-section p {
+        font-size: 16px;
+      }
+    }
+
+    /* Додаткові стилі для дуже малих екранів */
+    @media (max-width: 480px) {
+      .header-page .hero h1 {
+        font-size: 28px;
+      }
+
+      .header-page .hero p {
+        font-size: 16px;
+      }
+
+      .header-page .main-nav a {
+        font-size: 18px;
+      }
+
+      .header-page .brand-floating {
+        width: 120px;
+        height: 36px;
+      }
+    }
   </style>
 </head>
 
@@ -465,17 +674,26 @@
     <a href="#" class="brand">
       <img src="{% static 'images/LogoPBC-07.png' %}" alt="PBC Logo">
     </a>
-      <nav class="main-nav">
-       <ul>
+    
+    <!-- Бургер-меню для мобільних -->
+    <div class="burger-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    
+    <nav class="main-nav">
+      <ul>
         <li><a href="#about">ПРО НАС</a></li>
         <li><a href="#services">ПОСЛУГИ</a></li>
         <li><a href="#team">КОМАНДА</a></li>
         <li><a href="#customers">КЛІЄНТИ</a></li>
         <li><a href="#contact">КОНТАКТИ</a></li>
       </ul>
-      </nav>
-    </div>
-  </header>
+    </nav>
+  </div>
+</header>
+
 <div class="services-overlay">
   <button class="close-overlay">&times;</button>
   <div class="overlay-content">
@@ -483,47 +701,49 @@
   </div>
 </div>
 
+<!-- Білі лінії -->
+<div class="line-horizontal"></div>
+<div class="line-vertical"></div>
+<div class="line-horizontal-bottom"></div>
 
-  <!-- Білі лінії -->
-  <div class="line-horizontal"></div>
-  <div class="line-vertical"></div>
-  <div class="line-horizontal-bottom"></div>
+<section class="hero">
+  <div class="hero-content">
+    <h1>PRIME BUILD CONSULTING GROUP</h1>
+    <p>ЮРИДИЧНИЙ СУПРОВІД БУДІВНИЦТВА</p>
+  </div>
+  <div class="icon-down">
+    <img src="{% static 'images/icons/stdown.png' %}" alt="arrow" class="icon-down-inner">
+  </div>
+</section>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>PRIME BUILD CONSULTING GROUP</h1>
-      <p>ЮРИДИЧНИЙ СУПРОВІД БУДІВНИЦТВА</p>
-    </div>
-      <div class="icon-down">
-        <img src="{% static 'images/icons/stdown.png' %}" alt="arrow" class="icon-down-inner">
-      </div>
-  </section>
+<aside class="rail">
+  <h3>З вами на <br> кожному етапі</h3>
+  <p>експертний аудит<br>і юридичний супровід<br>ваших проєктів</p>
+  <a href="#" class="btn-outline">
+    <span class="btn-text">ДЕТАЛІ</span>
+    <img src="{% static 'images/icons/Frame311.svg' %}" alt="arrow" class="icon-arrow">
+  </a>
+</aside>
 
-  <aside class="rail">
-    <h3>З вами на <br> кожному етапі</h3>
-    <p>експертний аудит<br>і юридичний супровід<br>ваших проєктів</p>
-    <a href="#" class="btn-outline">
-      <span class="btn-text">ДЕТАЛІ</span>
-      <img src="{% static 'images/icons/Frame311.svg' %}" alt="arrow" class="icon-arrow">
-    </a>
-  </aside>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const servicesLink = document.querySelector('.main-nav li:nth-child(2) a');
   const overlay = document.querySelector('.services-overlay');
   const closeBtn = document.querySelector('.close-overlay');
+  const burgerMenu = document.querySelector('.burger-menu');
+  const mainNav = document.querySelector('.main-nav');
 
   // Показати overlay при кліку
   servicesLink.addEventListener('click', (e) => {
     e.preventDefault();
     overlay.classList.add('active');
-    document.body.style.overflow = 'hidden'; // 🔒 прибрати прокрутку сторінки
+    document.body.style.overflow = 'hidden';
   });
 
   // Закрити overlay при кліку на ×
   closeBtn.addEventListener('click', () => {
     overlay.classList.remove('active');
-    document.body.style.overflow = ''; // 🔓 повернути прокрутку
+    document.body.style.overflow = '';
   });
 
   // Закрити при кліку поза контентом
@@ -532,6 +752,22 @@ document.addEventListener("DOMContentLoaded", () => {
       overlay.classList.remove('active');
       document.body.style.overflow = '';
     }
+  });
+
+  // Бургер-меню
+  burgerMenu.addEventListener('click', () => {
+    burgerMenu.classList.toggle('active');
+    mainNav.classList.toggle('active');
+    document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+  });
+
+  // Закрити меню при кліку на посилання
+  mainNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      burgerMenu.classList.remove('active');
+      mainNav.classList.remove('active');
+      document.body.style.overflow = '';
+    });
   });
 });
 </script>

@@ -120,7 +120,207 @@
       text-transform: uppercase;
     }
 
-    @media (max-width: 1024px) {
+    /* ===== МОБІЛЬНА ВЕРСІЯ (тільки до 768px) ===== */
+    @media (max-width: 768px) {
+      .pbc-contact-wrapper {
+        height: auto;
+        min-height: 100vh;
+        padding: clamp(40px, 8vw, 60px) 0;
+      }
+
+      .pbc-contact-section {
+        height: auto;
+        min-height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background-size: 40px 40px;
+      }
+
+      .pbc-contact-container {
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(30px, 6vw, 40px);
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 0 clamp(15px, 4vw, 25px);
+      }
+
+      .pbc-contact-image {
+        width: 100%;
+        order: 2; /* Переміщуємо фото вниз */
+      }
+
+      .pbc-contact-image img {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        border-radius: 12px;
+      }
+
+      .pbc-contact-info {
+        order: 1; /* Переміщуємо інфо вгору */
+        margin-left: 0;
+        height: auto;
+        align-items: center;
+        text-align: center;
+        gap: clamp(25px, 6vw, 35px);
+        padding: 0;
+        width: 100%;
+      }
+
+      .pbc-contact-title {
+        font-size: clamp(28px, 7vw, 42px);
+        line-height: 1.2;
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .pbc-contact-email {
+        padding: clamp(16px, 4vw, 20px) clamp(25px, 6vw, 35px);
+        font-size: clamp(16px, 4vw, 18px);
+        width: 100%;
+        max-width: 320px;
+        border-width: 2px;
+      }
+
+      .pbc-contact-email:active {
+        background: var(--green-hover);
+        color: #fff;
+        border-color: var(--green-hover);
+        transform: scale(0.98);
+      }
+
+      .pbc-contact-location {
+        margin-top: clamp(30px, 8vw, 60px);
+        justify-content: center;
+      }
+
+      .pbc-contact-location-text {
+        font-size: clamp(18px, 5vw, 24px);
+        line-height: 1.3;
+      }
+
+      .pbc-contact-location-icon {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* Анімації для мобільних */
+      .pbc-contact-info > * {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.6s ease forwards;
+      }
+
+      .pbc-contact-title { animation-delay: 0.1s; }
+      .pbc-contact-email { animation-delay: 0.2s; }
+      .pbc-contact-location { animation-delay: 0.3s; }
+      .pbc-contact-image { animation-delay: 0.4s; }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+
+    /* Додаткова оптимізація для дуже малих екранів */
+    @media (max-width: 480px) {
+      .pbc-contact-wrapper {
+        padding: 30px 0;
+      }
+
+      .pbc-contact-container {
+        gap: 25px;
+        padding: 0 15px;
+      }
+
+      .pbc-contact-info {
+        gap: 20px;
+      }
+
+      .pbc-contact-title {
+        font-size: 24px;
+        line-height: 1.1;
+      }
+
+      .pbc-contact-email {
+        padding: 14px 20px;
+        font-size: 15px;
+      }
+
+      .pbc-contact-location {
+        margin-top: 25px;
+      }
+
+      .pbc-contact-location-text {
+        font-size: 16px;
+      }
+
+      .pbc-contact-image img {
+        max-height: 300px;
+      }
+    }
+
+    /* Горизонтальна орієнтація на мобільних */
+    @media (max-width: 768px) and (max-height: 500px) {
+      .pbc-contact-wrapper {
+        min-height: auto;
+        height: 100vh;
+        padding: 20px 0;
+      }
+
+      .pbc-contact-section {
+        min-height: auto;
+        height: 100%;
+      }
+
+      .pbc-contact-container {
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        max-width: 100%;
+      }
+
+      .pbc-contact-info {
+        order: 1;
+        flex: 1;
+        height: auto;
+        gap: 15px;
+      }
+
+      .pbc-contact-image {
+        order: 2;
+        flex: 1;
+      }
+
+      .pbc-contact-image img {
+        max-height: 250px;
+      }
+
+      .pbc-contact-title {
+        font-size: 20px;
+        line-height: 1.1;
+      }
+
+      .pbc-contact-email {
+        padding: 12px 18px;
+        font-size: 14px;
+      }
+
+      .pbc-contact-location {
+        margin-top: 15px;
+      }
+
+      .pbc-contact-location-text {
+        font-size: 14px;
+      }
+    }
+
+    /* Планшетна версія (769px - 1024px) - мінімальні зміни */
+    @media (min-width: 769px) and (max-width: 1024px) {
       .pbc-contact-container {
         flex-direction: column;
         align-items: center;
@@ -166,5 +366,54 @@
       </div>
     </div>
   </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Оптимізація для мобільних пристроїв
+      if (window.innerWidth <= 768) {
+        const emailLink = document.querySelector('.pbc-contact-email');
+        
+        // Додаємо тактильний зворотний зв'язок для кнопки email
+        if (emailLink) {
+          emailLink.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+          });
+          
+          emailLink.addEventListener('touchend', function() {
+            setTimeout(() => {
+              this.style.transform = '';
+            }, 150);
+          });
+        }
+
+        // Оптимізація зображення для мобільних
+        const contactImage = document.querySelector('.pbc-contact-image img');
+        if (contactImage) {
+          contactImage.loading = 'lazy';
+        }
+
+        // Поліпшення для iOS
+        if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+          document.documentElement.style.height = '-webkit-fill-available';
+          const contactWrapper = document.querySelector('.pbc-contact-wrapper');
+          if (contactWrapper) {
+            contactWrapper.style.height = 'auto';
+            contactWrapper.style.minHeight = '-webkit-fill-available';
+          }
+        }
+      }
+
+      // Перевірка зміни орієнтації
+      window.addEventListener('resize', function() {
+        if (window.innerWidth <= 768) {
+          // Оновлюємо висоту секції для мобільних
+          const wrapper = document.querySelector('.pbc-contact-wrapper');
+          if (wrapper) {
+            wrapper.style.height = 'auto';
+          }
+        }
+      });
+    });
+  </script>
 </body>
 </html>
