@@ -137,43 +137,7 @@
         position: relative;
       }
 
-      /* Mobile Menu Toggle */
-      .pbc-mobile-toggle {
-        display: flex;
-        width: 40px;
-        height: 40px;
-        background: var(--pbc-about-line);
-        border: none;
-        border-radius: 8px;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 4px;
-        cursor: pointer;
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 100;
-      }
-
-      .pbc-mobile-toggle span {
-        width: 20px;
-        height: 2px;
-        background: var(--pbc-about-white);
-        transition: all 0.3s ease;
-      }
-
-      .pbc-mobile-toggle.active span:nth-child(1) {
-        transform: rotate(45deg) translate(6px, 6px);
-      }
-
-      .pbc-mobile-toggle.active span:nth-child(2) {
-        opacity: 0;
-      }
-
-      .pbc-mobile-toggle.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -6px);
-      }
+    
 
       /* Sidebar для мобільних */
       .pbc-about-sidebar {
@@ -312,11 +276,11 @@
 
 <body class="pbc-about-body">
   <!-- Mobile Menu Toggle - тільки для мобільних -->
-  <button class="pbc-mobile-toggle" aria-label="Відкрити меню" style="display: none;">
+  <!-- <button class="pbc-mobile-toggle" aria-label="Відкрити меню" style="display: none;">
     <span></span>
     <span></span>
     <span></span>
-  </button>
+  </button> -->
 
   <main class="pbc-about-main">
     <!-- ===== LEFT NAVIGATION ===== -->

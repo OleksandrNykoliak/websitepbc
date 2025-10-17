@@ -17,7 +17,7 @@
       --bg-color: var(--gray-900);
       --text-color: #fff;
       --line-color: #fff;
-      --accent: #2F8000;
+      --accent: #fff;
     }
 
     body {
@@ -275,30 +275,19 @@
       display: none;
     }
 
-    /* ===== АДАПТИВНІСТЬ ===== */
-    @media (max-width: 1024px) {
-      .projects-section {
-        padding: 60px 15px;
-      }
-      
-      .slider-container {
-        padding: 0 15px;
-      }
-      
-      .projects-slider {
-        gap: 20px;
-      }
-    }
-
+    /* ===== ОПТИМІЗАЦІЯ ДЛЯ МОБІЛЬНИХ ===== */
     @media (max-width: 768px) {
       .projects-section {
-        padding: 40px 10px;
+        margin-top: 20px;
+        padding: 60px 16px;
         justify-content: flex-start;
         min-height: auto;
       }
       
       .section-title {
+
         margin-bottom: 40px;
+        font-size: 28px;
       }
       
       .section-title::after {
@@ -308,7 +297,7 @@
       
       .slider-container {
         margin-bottom: 30px;
-        padding: 0 10px;
+        padding: 0 8px;
       }
       
       .mobile-slider-nav {
@@ -322,25 +311,73 @@
       
       .slider-controls {
         width: 95%;
+        margin-bottom: 25px;
       }
       
       .project-description {
         text-align: center;
-        padding: 0 15px;
+        padding: 0 16px;
+      }
+
+      /* Покращення для тач-екранів */
+      .slider-dot {
+        width: 14px;
+        height: 14px;
+      }
+
+      .nav-btn {
+        width: 54px;
+        height: 54px;
+        font-size: 22px;
+      }
+
+      .nav-btn:active {
+        background: var(--accent);
+        color: #121212;
+        transform: scale(0.95);
+      }
+
+      /* Покращення свайпів */
+      .slider-container {
+        cursor: grab;
+      }
+
+      .slider-container:active {
+        cursor: grabbing;
+      }
+
+      /* Оптимізація продуктивності */
+      .project-image {
+        transform: translateZ(0);
+        backface-visibility: hidden;
+      }
+
+      /* Кращі відступи для мобільних */
+      .slide-overlay {
+        padding: 18px 16px;
+      }
+
+      .slide-title {
+        font-size: 16px;
+      }
+
+      .slide-category {
+        font-size: 13px;
       }
     }
 
     @media (max-width: 576px) {
       .projects-section {
-        padding: 30px 10px;
+        padding: 40px 12px;
       }
       
       .section-title {
-        margin-bottom: 30px;
+        margin-bottom: 32px;
+        font-size: 24px;
       }
       
       .project-image {
-        width: 250px;
+        width: 260px;
         height: 320px;
       }
       
@@ -350,18 +387,73 @@
       }
       
       .slider-dot {
-        width: 10px;
-        height: 10px;
+        width: 12px;
+        height: 12px;
       }
       
       .mobile-slider-nav {
-        gap: 15px;
+        gap: 16px;
+        margin: 25px 0;
       }
       
       .nav-btn {
-        width: 45px;
-        height: 45px;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+      }
+
+      .description-title {
         font-size: 18px;
+      }
+      
+      .description-subtitle {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .projects-section {
+        padding: 32px 10px;
+      }
+      
+      .section-title {
+        font-size: 22px;
+        margin-bottom: 28px;
+      }
+      
+      .project-image {
+        width: 240px;
+        height: 300px;
+      }
+      
+      .slider-container {
+        padding: 0 4px;
+      }
+      
+      .projects-slider {
+        gap: 12px;
+      }
+      
+      .mobile-slider-nav {
+        gap: 14px;
+      }
+      
+      .nav-btn {
+        width: 46px;
+        height: 46px;
+        font-size: 18px;
+      }
+
+      .slide-overlay {
+        padding: 16px 12px;
+      }
+
+      .slide-title {
+        font-size: 15px;
+      }
+
+      .slide-category {
+        font-size: 12px;
       }
     }
 
@@ -373,6 +465,60 @@
       
       .slider-controls {
         width: 100%;
+      }
+
+      .section-title {
+        font-size: 20px;
+      }
+
+      .description-title {
+        font-size: 16px;
+      }
+      
+      .description-subtitle {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 320px) {
+      .project-image {
+        width: 200px;
+        height: 260px;
+      }
+      
+      .mobile-slider-nav {
+        gap: 12px;
+      }
+      
+      .nav-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+      }
+
+      .projects-section {
+        padding: 24px 8px;
+      }
+    }
+
+    /* Горизонтальна орієнтація */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .projects-section {
+        padding: 20px 16px;
+        min-height: auto;
+      }
+      
+      .section-title {
+        margin-bottom: 20px;
+        font-size: 20px;
+      }
+      
+      .project-image {
+        height: 200px;
+      }
+      
+      .mobile-slider-nav {
+        margin: 20px 0;
       }
     }
 
@@ -431,7 +577,7 @@
         <div class="slider-progress" id="sliderProgress"></div>
         <div class="slider-indicator" id="sliderIndicator">
           <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" viewBox="0 0 65 65" fill="none">
-            <circle cx="32.5" cy="32.5" r="30" fill="#121212" stroke="#2F8000" stroke-width="3"/>
+            <circle cx="32.5" cy="32.5" r="30" fill="#121212" stroke="#fff" stroke-width="3"/>
           </svg>
         </div>
         <div class="slider-dots" id="sliderDots">
@@ -539,7 +685,7 @@
           slide.className = 'project-slide';
           
           slide.innerHTML = `
-            <img src="${project.image}" alt="${project.alt}" class="project-image">
+            <img src="${project.image}" alt="${project.alt}" class="project-image" loading="lazy">
             <div class="slide-overlay">
               <h4 class="slide-title">${project.title}</h4>
               <p class="slide-category">${project.category}</p>
