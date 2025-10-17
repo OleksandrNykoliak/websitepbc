@@ -30,18 +30,18 @@
         .services-list {
             flex: 1;
             background-color: #0E1012;
-            padding: 60px 250px;
+            padding: 60px 100px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
             position: relative;
-            margin-top: -300px;
         }
 
         .services-items {
             list-style: none;
             text-align: left;
+            margin-left: 80px;
             padding-left: 0;
         }
 
@@ -108,18 +108,17 @@
             border-left: 2px solid var(--white, #FFF);
             display: flex;
             flex-direction: column;
-            justify-content: center; /* по вертикалі */
-            align-items: center; /* по горизонталі */
+            justify-content: center;
+            align-items: center;
             padding: 60px 40px;
             position: relative;
-            margin-top: -300px;
         }
 
         /* Контейнер зображення + кнопки */
         .visual-content {
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* кнопка буде по лівому краю фото */
+            align-items: flex-start;
         }
 
         .team-image {
@@ -152,49 +151,177 @@
             border-color: #2F8000;
         }
 
-        /* Адаптивність */
+        /* Адаптивність для планшетів */
+        @media (max-width: 1200px) {
+            .services-list {
+                padding: 60px 50px;
+            }
+            
+            .services-items {
+                margin-left: 40px;
+            }
+            
+            .expertise-btn {
+                margin-left: 40px;
+            }
+            
+            .team-image {
+                width: 500px;
+                height: 333px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .services-list {
+                padding: 60px 30px;
+            }
+            
+            .services-items {
+                margin-left: 20px;
+            }
+            
+            .expertise-btn {
+                margin-left: 20px;
+            }
+            
+            .team-image {
+                width: 400px;
+                height: 267px;
+            }
+        }
+
+        /* Адаптивність для мобільних */
         @media (max-width: 768px) {
             .services-section {
                 flex-direction: column;
+                min-height: auto;
+            }
+
+            .services-list {
+                padding: 40px 20px;
+                width: 100%;
+                align-items: center;
+            }
+
+            .services-items {
+                margin-left: 0;
+                width: 100%;
+                max-width: 500px;
+            }
+
+            .service-item {
+                margin-bottom: 25px;
+            }
+
+            .service-icon {
+                width: 45px;
+                height: 45px;
+                margin-right: 15px;
+            }
+
+            .service-text {
+                font-size: 16px;
+                line-height: 1.3;
+            }
+
+            .expertise-btn {
+                margin: 30px auto 0;
+                align-self: center;
             }
 
             .services-visual {
                 border-left: none;
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
-                justify-content: center;
-                align-items: center;
+                padding: 40px 20px;
+                width: 100%;
             }
 
             .visual-content {
-                align-items: center; /* кнопка теж буде по центру на мобільному */
+                align-items: center;
+                width: 100%;
             }
 
             .team-image {
                 width: 100%;
+                max-width: 500px;
                 height: auto;
+                aspect-ratio: 621 / 414;
+                margin-bottom: 30px;
             }
 
-            .expertise-btn {
-                align-self: flex-start;
-                margin-top: 30px;
+            .details-btn {
+                align-self: center;
             }
         }
-.services-list {
-    flex: 1;
-    background-color: #0E1012;
-    padding: 60px 100px; /* менший відступ, щоб не тиснув праву частину */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    position: relative;
+
+        /* Для дуже малих екранів */
+        @media (max-width: 480px) {
+            .services-list {
+                padding: 30px 15px;
+            }
+
+            .service-item {
+                margin-bottom: 40px;
+            }
+
+            .service-icon {
+                width: 40px;
+                height: 40px;
+                margin-right: 12px;
+            }
+
+            .service-text {
+                font-size: 14px;
+                line-height: 1.2;
+            }
+
+            .expertise-btn,
+            .details-btn {
+                padding: 12px 25px;
+                font-size: 14px;
+            }
+            
+            .services-visual {
+                padding: 30px 15px;
+            }
+        }
+
+        /* Фікс для ховерів на мобільних */
+        @media (hover: hover) {
+            .expertise-btn:hover,
+            .details-btn:hover {
+                background-color: #2F8000;
+                color: #fff;
+                border-color: #2F8000;
+            }
+        }
+
+        /* Для тач-пристроїв */
+        @media (hover: none) {
+            .expertise-btn:active,
+            .details-btn:active {
+                background-color: #2F8000;
+                color: #fff;
+                border-color: #2F8000;
+            }
+        }
+.team-image {
+    width: 621px;
+    height: 414px;
+    object-fit: cover;
+    filter: grayscale(100%);
+    margin-bottom: 40px;
 }
 
-.services-items {
-    list-style: none;
-    text-align: left;
-    margin-left: 80px; /* створює красивий відступ списків вправо */
-    padding-left: 0;
+/* Для мобільних — показує повністю, не обрізає */
+@media (max-width: 768px) {
+    .team-image {
+        width: 100%;
+        height: auto;
+        object-fit: contain; /* було cover */
+        aspect-ratio: auto; /* прибирає фіксоване співвідношення */
+        margin-bottom: 30px;
+    }
 }
 
         
