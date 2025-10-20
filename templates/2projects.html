@@ -601,69 +601,70 @@
       const prevBtn = document.querySelector('.prev-btn');
       const nextBtn = document.querySelector('.next-btn');
       
-      // Масив зображень з описом
-      const projects = [
-        {
-          image: "{% static 'images/projects/residential1.png' %}",
-          title: "Житловий комплекс",
-          category: "Житловий",
-          alt: "Житловий комплекс"
-        },
-        {
-          image: "{% static 'images/projects/residential2.png' %}",
-          title: "Приватний будинок", 
-          category: "Приватний",
-          alt: "Приватний будинок"
-        },
-        {
-          image: "{% static 'images/projects/residential3.png' %}",
-          title: "Житловий квартал",
-          category: "Квартал", 
-          alt: "Житловий квартал"
-        },
-        {
-          image: "{% static 'images/projects/residential4.png' %}",
-          title: "Апартаменти",
-          category: "Апартаменти",
-          alt: "Апартаменти"
-        },
-        {
-          image: "{% static 'images/projects/residential5.png' %}",
-          title: "Житлова забудова",
-          category: "Забудова",
-          alt: "Житлова забудова"
-        },
-        {
-          image: "{% static 'images/projects/residential6.png' %}",
-          title: "Сучасний комплекс",
-          category: "Сучасний",
-          alt: "Сучасний комплекс"
-        },
-        {
-          image: "{% static 'images/projects/residential7.png' %}",
-          title: "Елітне житло",
-          category: "Елітний",
-          alt: "Елітне житло"
-        },
-        {
-          image: "{% static 'images/projects/residential8.png' %}",
-          title: "Міська забудова", 
-          category: "Міський",
-          alt: "Міська забудова"
-        },
-        {
-          image: "{% static 'images/projects/residential9.png' %}",
-          title: "Заміський комплекс",
-          category: "Заміський",
-          alt: "Заміський комплекс"
-        },
-        {
-          image: "{% static 'images/projects/residential10.png' %}",
-          title: "Інвестиційний проект",
-          category: "Інвестиційний",
-          alt: "Інвестиційний проект"
-        }
-      ];
+// Масив зображень з описом
+    const projects = [
+      {
+        image: "{% static 'images/projects/1.1.jpg' %}",
+        title: "Житловий комплекс",
+        category: "Житловий",
+        alt: "Житловий комплекс"
+      },
+      {
+        image: "{% static 'images/projects/1.2.png' %}",
+        title: "Приватний будинок",
+        category: "Приватний",
+        alt: "Приватний будинок"
+      },
+      {
+        image: "{% static 'images/projects/1.3.jpg' %}",
+        title: "Житловий квартал",
+        category: "Квартал",
+        alt: "Житловий квартал"
+      },
+      {
+        image: "{% static 'images/projects/1.4.jpg' %}",
+        title: "Апартаменти",
+        category: "Апартаменти",
+        alt: "Апартаменти"
+      },
+      {
+        image: "{% static 'images/projects/1.5.jpg' %}",
+        title: "Житлова забудова",
+        category: "Забудова",
+        alt: "Житлова забудова"
+      },
+      {
+        image: "{% static 'images/projects/1.6.jpg' %}",
+        title: "Сучасний комплекс",
+        category: "Сучасний",
+        alt: "Сучасний комплекс"
+      },
+      {
+        image: "{% static 'images/projects/1.7.jpg' %}",
+        title: "Елітне житло",
+        category: "Елітний",
+        alt: "Елітне житло"
+      },
+      {
+        image: "{% static 'images/projects/1.8.jpg' %}",
+        title: "Міська забудова",
+        category: "Міський",
+        alt: "Міська забудова"
+      },
+      {
+        image: "{% static 'images/projects/1.9.jpg' %}",
+        title: "Заміський комплекс",
+        category: "Заміський",
+        alt: "Заміський комплекс"
+      },
+      {
+        image: "{% static 'images/projects/1.10.jpg' %}",
+        title: "Інвестиційний проєкт",
+        category: "Інвестиційний",
+        alt: "Інвестиційний проєкт"
+      }
+    ];
+
       
       const totalProjects = projects.length;
       let currentIndex = 0;
