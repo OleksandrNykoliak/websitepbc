@@ -299,6 +299,54 @@
                 margin-bottom: 8px;
             }
 }
+
+
+        .logo-track1 {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            left: 0;
+            animation: scroll 40s linear infinite;
+            white-space: nowrap;
+        }
+
+      @media (max-width: 768px) {
+            .logo-track1 {
+                animation: scrollMobile 90s linear infinite;
+                gap: clamp(20px, 6vw, 40px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-track1 {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+        .main-heading div {
+            font-size: 22px !important;
+            line-height: 1.3;
+        }
+    }
+
+    .logo-track1 {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    animation: scroll 90s linear infinite; /* було 40s → стало повільніше */
+    white-space: nowrap;
+}
+
+/* Для мобільних */
+@media (max-width: 768px) {
+    .logo-track1 {
+        animation: scrollMobile 180s linear infinite; /* було 90s → стало ще плавніше */
+        gap: clamp(20px, 6vw, 40px);
+    }
+}
+
     </style>
 </head>
 <body>
@@ -310,11 +358,17 @@
                 БЕЗПЕЧНО ТА З УРАХУВАННЯМ ВСІХ ВИМОГ
                 ЧИННОГО ЗАКОНОДАВСТВА</div>
             </div>
-            
+                     <div class="logo-carousel-container">
+                <div class="logo-track1">
+                    <!-- Логотипи додаються скриптом -->
+                </div>
+            </div>
             <div class="metric-block">
                 <div class="metric-value">250 ТИС.+</div>
                 <div class="metric-label">М2 НА ЮРИДИЧНОМУ СУПРОВОДІ</div>
             </div>
+
+   
         </div>
     </section>
 
@@ -355,6 +409,101 @@
                 heroSection.style.height = '-webkit-fill-available';
             }
         }
+
+            document.addEventListener('DOMContentLoaded', function() {
+            const logoTrack = document.querySelector('.logo-track1');
+            const logos = [
+                "{% static 'logo/1.png' %}",
+                "{% static 'logo/2.png' %}",
+                "{% static 'logo/3.png' %}",
+                "{% static 'logo/4.png' %}",
+                "{% static 'logo/5.png' %}",
+                "{% static 'logo/6.png' %}",
+                "{% static 'logo/7.png' %}",
+                "{% static 'logo/8.png' %}",
+                "{% static 'logo/9.png' %}",
+                "{% static 'logo/10.png' %}",
+                "{% static 'logo/11.png' %}"
+            ];
+            
+            const altTexts = [
+                "Логотип 1",
+                "Логотип 2",
+                "Логотип 3",
+                "Логотип 4",
+                "Логотип 5",
+                "Логотип 6",
+                "Логотип 7",
+                "Логотип 8",
+                "Логотип 9",
+                "Логотип 10",
+                "Логотип 11"
+            ];
+            
+            // Функція для створення логотипів з оптимізацією для мобільних
+            function createLogos() {
+                const isMobile = window.innerWidth <= 768;
+                const repetitions = isMobile ? 4 : 3; // Більше повторень для мобільних для плавності
+                
+                logoTrack.innerHTML = '';
+                
+                for (let i = 0; i < repetitions; i++) {
+                    logos.forEach((logo, index) => {
+                        const logoItem = document.createElement('div');
+                        logoItem.className = 'logo-item';
+                        
+                        const img = document.createElement('img');
+                        img.src = logo;
+                        img.alt = altTexts[index];
+                        img.loading = 'lazy'; // Lazy loading для мобільних
+                        
+                        logoItem.appendChild(img);
+                        logoTrack.appendChild(logoItem);
+                    });
+                }
+            }
+            
+            // Ініціалізація
+            createLogos();
+            
+            // Оптимізація для мобільних пристроїв
+            if (window.innerWidth <= 768) {
+                // Пауза при торканні каруселі
+                let isPaused = false;
+                
+                const carouselContainer = document.querySelector('.logo-carousel-container');
+                const logoTrack = document.querySelector('.logo-track1');
+                
+                carouselContainer.addEventListener('touchstart', function() {
+                    isPaused = true;
+                    logoTrack.style.animationPlayState = 'paused';
+                });
+                
+                carouselContainer.addEventListener('touchend', function() {
+                    setTimeout(() => {
+                        isPaused = false;
+                        logoTrack.style.animationPlayState = 'running';
+                    }, 2000);
+                });
+                
+                // Автоматичне оновлення при зміні орієнтації
+                window.addEventListener('resize', function() {
+                    createLogos();
+                });
+            }
+            
+            // Поліпшення для iOS
+            if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+                document.documentElement.style.height = '-webkit-fill-available';
+                const clientsSection = document.querySelector('.clients-section');
+                if (clientsSection && window.innerWidth <= 768) {
+                    clientsSection.style.height = 'auto';
+                    clientsSection.style.minHeight = '-webkit-fill-available';
+                }
+            }
+        });
     </script>
+
+
 </body>
 </html>

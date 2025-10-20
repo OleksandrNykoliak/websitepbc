@@ -94,7 +94,7 @@
             position: relative;
         }
 
-        .logo-track {
+        .logo-track2 {
             display: flex;
             align-items: center;
             position: absolute;
@@ -161,8 +161,8 @@
                 justify-content: center;
             }
 
-            .logo-track {
-                animation: scrollMobile 30s linear infinite;
+            .logo-track2 {
+                animation: scrollMobile 120s linear infinite;
                 gap: clamp(20px, 6vw, 40px);
             }
 
@@ -211,7 +211,6 @@
                 }
             }
         }
-/* Додаткова оптимізація для дуже малих екранів */
 @media (max-width: 480px) {
     .clients-section {
         padding: 70px 15px 50px;
@@ -219,7 +218,7 @@
     }
 
     .clients-heading {
-        font-size: 22px;
+        font-size: 22px !important;
         line-height: 1.25;
     }
 
@@ -227,7 +226,7 @@
         height: 35px;
     }
 
-    .logo-track {
+    .logo-track2 {
         gap: 15px;
     }
 
@@ -300,6 +299,23 @@
     }
 }
 
+.logo-track2 {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    animation: scroll 90s linear infinite; /* було 40s → стало повільніше */
+    white-space: nowrap;
+}
+
+/* Для мобільних */
+@media (max-width: 768px) {
+    .logo-track2 {
+        animation: scrollMobile 180s linear infinite; /* було 120s → стало ще плавніше */
+        gap: clamp(20px, 6vw, 40px);
+    }
+}
+
 
     </style>
 </head>
@@ -314,7 +330,7 @@
             </div>
             
             <div class="logo-carousel-container">
-                <div class="logo-track">
+                <div class="logo-track2">
                     <!-- Логотипи додаються скриптом -->
                 </div>
             </div>
@@ -323,7 +339,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const logoTrack = document.querySelector('.logo-track');
+            const logoTrack = document.querySelector('.logo-track2');
             const logos = [
                 "{% static 'logo/1.png' %}",
                 "{% static 'logo/2.png' %}",
@@ -384,7 +400,7 @@
                 let isPaused = false;
                 
                 const carouselContainer = document.querySelector('.logo-carousel-container');
-                const logoTrack = document.querySelector('.logo-track');
+                const logoTrack = document.querySelector('.logo-track2');
                 
                 carouselContainer.addEventListener('touchstart', function() {
                     isPaused = true;
