@@ -216,7 +216,7 @@
             }
             
             .metric-label {
-                font-size: 30px;
+                font-size: 18px;
                 line-height: 1.25;
             }
         }
@@ -346,6 +346,36 @@
         gap: clamp(20px, 6vw, 40px);
     }
 }
+/* === МОБІЛЬНА ВЕРСІЯ (повна висота як у hero-section-specific) === */
+@media (max-width: 768px) {
+  .clients-section {
+    height: 100vh;
+    min-height: 667px;
+    max-height: 900px;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .clients-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+/* Для дуже малих екранів */
+@media (max-width: 480px) {
+  .clients-section {
+    min-height: 568px;
+    height: 100vh;
+    padding: 15px 0;
+  }
+}
+
 
     </style>
 </head>
