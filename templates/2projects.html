@@ -564,6 +564,32 @@
     .project-description {
       animation-delay: 0.4s;
     }
+
+    /* Видаляє білий фон при кліку на кнопки */
+.nav-btn, .slider-indicator {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-btn:active, .slider-indicator:active {
+  background-color: transparent !important;
+}
+
+/* Спеціально для мобільних кнопок */
+.nav-btn:active {
+  background: #121212 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
+
+/* Для індикатора слайдера */
+.slider-indicator:active {
+  background: transparent !important;
+}
+
+.slider-indicator:active svg circle {
+  fill: #121212 !important;
+  stroke: #fff !important;
+}
   </style>
 </head>
 
